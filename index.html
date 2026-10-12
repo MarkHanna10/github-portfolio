@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mark Hanna, Software Engineering Student</title>
+  <meta name="description" content="Mark Hanna, third-year Software Engineering student at Western University. Full-stack projects in React, Supabase and JavaScript.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pitch: #12382c;
+      --pitch-deep: #0c2a20;
+      --line: #4f8a73;
+      --chalk: #eef2ec;
+      --paper: #f7f8f5;
+      --ink: #17201c;
+      --muted: #56645d;
+      --rule: #d5dcd6;
+      --card: #f2c230;
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Archivo", system-ui, sans-serif;
+      font-variation-settings: "wdth" 100;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+    a:hover { text-decoration-color: var(--card); text-decoration-thickness: 3px; }
+    :focus-visible { outline: 3px solid var(--card); outline-offset: 3px; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+    .measure { max-width: 40rem; }
+
+    /* Hero: the pitch */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--pitch);
+      color: var(--chalk);
+      padding: 5.5rem 0 4.5rem;
+    }
+    .hero svg.pitch {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .pitch line, .pitch circle, .pitch rect {
+      fill: none;
+      stroke: var(--line);
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+    .pitch .spot { fill: var(--line); stroke: none; }
+    .hero .wrap { position: relative; }
+    @media (max-width: 40rem) { .hero svg.pitch { opacity: 0.45; } }
+    .name {
+      margin: 0;
+      font-weight: 800;
+      font-variation-settings: "wdth" 125;
+      font-size: clamp(3rem, 11vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+    }
+    .intro {
+      margin: 1.75rem 0 0;
+      font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+      line-height: 1.45;
+      max-width: 34rem;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.75rem;
+      margin: 2.25rem 0 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 600;
+    }
+
+    /* Draw the centre circle once on load */
+    .pitch .centre { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 1.6s 0.2s ease-out forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .pitch .centre { animation: none; stroke-dashoffset: 0; }
+    }
+
+    /* Sections */
+    main section { padding: 4.5rem 0 0; }
+    h2 {
+      margin: 0 0 1.75rem;
+      font-weight: 700;
+      font-variation-settings: "wdth" 112;
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+    h3 {
+      margin: 0;
+      font-weight: 700;
+      font-variation-settings: "wdth" 110;
+      font-size: 1.375rem;
+      line-height: 1.25;
+    }
+    p { margin: 0.75rem 0 0; }
+    .muted { color: var(--muted); }
+
+    .featured {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+    .featured figure { margin: 0; }
+    .featured img { border: 1px solid var(--rule); border-radius: 6px; }
+    .facts { margin: 1.25rem 0 0; padding-left: 1.1rem; }
+    .facts li { margin: 0.35rem 0; }
+    .stack { margin-top: 1rem; color: var(--muted); font-size: 0.95rem; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 1.25rem; font-weight: 600; }
+    @media (min-width: 52rem) {
+      .featured { grid-template-columns: 1fr 1.15fr; align-items: start; }
+    }
+
+    .more { list-style: none; margin: 3.5rem 0 0; padding: 0; border-top: 1px solid var(--rule); }
+    .more li { padding: 1.75rem 0; border-bottom: 1px solid var(--rule); }
+    .more p { max-width: 40rem; }
+
+    .skills { display: grid; grid-template-columns: max-content 1fr; gap: 0.6rem 2rem; margin: 0; }
+    .skills dt { font-weight: 700; }
+    .skills dd { margin: 0; }
+    @media (max-width: 30rem) {
+      .skills { grid-template-columns: 1fr; gap: 0.15rem; }
+      .skills dd { margin-bottom: 0.75rem; }
+    }
+
+    footer {
+      margin-top: 5rem;
+      background: var(--pitch-deep);
+      color: var(--chalk);
+      padding: 3.5rem 0;
+    }
+    footer h2 { margin-bottom: 0.75rem; }
+    footer .links { margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <svg class="pitch" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect x="20" y="20" width="1160" height="560"/>
+      <line x1="900" y1="20" x2="900" y2="580"/>
+      <circle class="centre" cx="900" cy="300" r="110"/>
+      <circle class="spot" cx="900" cy="300" r="5"/>
+      <rect x="1060" y="170" width="120" height="260"/>
+      <rect x="1140" y="240" width="40" height="120"/>
+    </svg>
+    <div class="wrap">
+      <h1 class="name">Mark<br>Hanna</h1>
+      <p class="intro">Third-year Software Engineering student at Western University. I build full-stack web apps with real users, data pipelines and tests. Looking for a 12+ month co-op in Ontario or the United States.</p>
+      <ul class="links">
+        <li><a href="https://github.com/MarkHanna10">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/markhanna10">LinkedIn</a></li>
+        <li><a href="mailto:markshanna2006@gmail.com">markshanna2006@gmail.com</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="work">
+      <h2 id="work">Projects</h2>
+
+      <article class="featured">
+        <div>
+          <h3>World Cup 2026 Predictor</h3>
+          <p>A prediction game for the 2026 World Cup. A trained model forecasts every match, players submit picks, and private leagues compete on a live leaderboard. Over 100 people used the site during the tournament.</p>
+          <ul class="facts">
+            <li>Logistic regression trained on 2,448 international matches, 68.6% cross-validated accuracy</li>
+            <li>10,000 simulated tournaments for each team's odds of reaching every round</li>
+            <li>Live scores pushed to the browser through Supabase Realtime, polled every minute by an Edge Function</li>
+            <li>Daily data refresh and redeploy through GitHub Actions</li>
+            <li>Row-level security on every table, 23 unit tests in CI</li>
+          </ul>
+          <p class="stack">React, Vite, Tailwind CSS, Supabase, PostgreSQL, Python, scikit-learn, GitHub Actions</p>
+          <div class="project-links">
+            <a href="https://markhanna10.github.io/world-cup-2026-predictor/">Live site</a>
+            <a href="https://github.com/MarkHanna10/world-cup-2026-predictor">Source code</a>
+          </div>
+        </div>
+        <figure>
+          <img src="assets/world-cup-predictor.jpg" width="1600" height="942" alt="The predictor's schedule page listing group-stage fixtures with team flags, kickoff times and venues.">
+        </figure>
+      </article>
+
+      <ul class="more">
+        <li>
+          <h3>Course Explorer</h3>
+          <p>Load a course catalog from a JSON file, then filter by department, level, credits and instructor, and sort by ID, title or semester. Validates the file and escapes every value before rendering.</p>
+          <p class="stack">JavaScript, HTML, CSS, File API</p>
+          <div class="project-links">
+            <a href="https://markhanna10.github.io/SE2202-MiniProject2/">Live demo</a>
+            <a href="https://github.com/MarkHanna10/SE2202-MiniProject2">Source code</a>
+          </div>
+        </li>
+        <li>
+          <h3>Assignment Tracker</h3>
+          <p>An event-driven simulation of a course's assignment workflow. Students work, submit and get graded on timers, and an observer reports each status change as it happens.</p>
+          <p class="stack">JavaScript, Node.js, Observer pattern, Promises</p>
+          <div class="project-links">
+            <a href="https://github.com/MarkHanna10/SE2202_MiniProject3">Source code</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="skills">
+      <h2 id="skills">Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt><dd>JavaScript, Python, SQL</dd>
+        <dt>Frontend</dt><dd>React, Vite, Tailwind CSS, HTML, CSS</dd>
+        <dt>Backend</dt><dd>Supabase, PostgreSQL, Edge Functions</dd>
+        <dt>Tools</dt><dd>Git, GitHub Actions, Vitest, Vercel, GitHub Pages</dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="education">
+      <h2 id="education">Education</h2>
+      <h3>Western University</h3>
+      <p>Bachelor of Engineering Science, Software Engineering. Third year.</p>
+      <p class="muted">Coursework includes databases, software project management, requirements engineering, algorithms and data structures, and scripting languages.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap measure">
+      <h2>Get in touch</h2>
+      <p>Hiring for a co-op term? Send me an email or a message on LinkedIn.</p>
+      <ul class="links">
+        <li><a href="mailto:markshanna2006@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/markhanna10">LinkedIn</a></li>
+        <li><a href="https://github.com/MarkHanna10">GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
