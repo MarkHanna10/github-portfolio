@@ -8,257 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f7f7f9;
-      --surface: #ffffff;
-      --ink: #17151d;
-      --muted: #5f5b6b;
-      --rule: #e3e1e8;
-      --accent: #4f2683;
-      --accent-soft: #efeaf6;
-      --on-accent: #ffffff;
-      --shot-border: #dcd9e2;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #121017;
-        --surface: #1a1722;
-        --ink: #edebf2;
-        --muted: #a49fb2;
-        --rule: #2c2836;
-        --accent: #b99be8;
-        --accent-soft: #241d33;
-        --on-accent: #17121f;
-        --shot-border: #2c2836;
-      }
-    }
-    :root[data-theme="dark"] {
-      --bg: #121017;
-      --surface: #1a1722;
-      --ink: #edebf2;
-      --muted: #a49fb2;
-      --rule: #2c2836;
-      --accent: #b99be8;
-      --accent-soft: #241d33;
-      --on-accent: #17121f;
-      --shot-border: #2c2836;
-    }
-
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1.5rem; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "IBM Plex Sans", system-ui, sans-serif;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    a { color: var(--accent); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
-    a:hover { text-decoration-thickness: 2px; }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-    img { display: block; max-width: 100%; height: auto; }
-    p { margin: 0; }
-    ul { margin: 0; padding: 0; }
-    figure { margin: 0; }
-
-    .page {
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    /* Sidebar */
-    .side { padding: 3rem 0 2rem; }
-    .name {
-      margin: 0;
-      font-size: clamp(2.25rem, 6vw, 2.75rem);
-      font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -0.015em;
-    }
-    .role {
-      margin-top: 0.5rem;
-      font-size: 1.125rem;
-      font-weight: 500;
-    }
-    .pitch {
-      margin-top: 1rem;
-      max-width: 22rem;
-      color: var(--muted);
-    }
-    .status {
-      display: inline-flex;
-      align-self: flex-start;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-    .status::before {
-      content: "";
-      flex: none;
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 50%;
-      background: #2e9d5b;
-    }
-    .toc { display: none; }
-    .side-foot { margin-top: 1.75rem; }
-    .contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.25rem;
-      margin-top: 1.25rem;
-      list-style: none;
-      font-weight: 500;
-    }
-    .resume-btn {
-      display: inline-block;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      background: var(--accent);
-      color: var(--on-accent);
-      font-weight: 500;
-      text-decoration: none;
-    }
-    .resume-btn:hover { filter: brightness(1.12); }
-
-    /* Content */
-    main section { padding: 2.5rem 0; border-top: 1px solid var(--rule); }
-    h2 {
-      margin: 0 0 1.5rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-    h3 {
-      margin: 0;
-      font-size: 1.0625rem;
-      font-weight: 600;
-      line-height: 1.35;
-    }
-    .about p { max-width: 40rem; }
-    .about p + p { margin-top: 1rem; }
-
-    .entry {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.25rem 1.5rem;
-    }
-    .entry + .entry { margin-top: 2rem; }
-    .when {
-      color: var(--muted);
-      font-size: 0.875rem;
-      font-variant-numeric: tabular-nums;
-      padding-top: 0.15rem;
-    }
-    .org { color: var(--muted); }
-    .points {
-      margin-top: 0.6rem;
-      padding-left: 1.1rem;
-      max-width: 40rem;
-    }
-    .points li { margin: 0.3rem 0; }
-    .points li::marker { color: var(--muted); }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.85rem;
-      list-style: none;
-    }
-    .tags li {
-      padding: 0.15rem 0.55rem;
-      border-radius: 4px;
-      background: var(--accent-soft);
-      font-size: 0.8125rem;
-      font-weight: 500;
-    }
-
-    .project + .project { margin-top: 3rem; }
-    .shot {
-      margin-bottom: 1.25rem;
-      border: 1px solid var(--shot-border);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--surface);
-    }
-    .credit { margin-top: 0.35rem; color: var(--muted); font-size: 0.9375rem; }
-    .summary { margin-top: 0.6rem; max-width: 40rem; }
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.25rem;
-      margin-top: 0.9rem;
-      list-style: none;
-      font-weight: 500;
-    }
-
-    .more { margin-top: 3rem; list-style: none; }
-    .more > li { padding: 1.25rem 0; border-top: 1px solid var(--rule); }
-    .more .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1rem; }
-
-    .skills { display: grid; grid-template-columns: 1fr; gap: 0.2rem 1.5rem; margin: 0; }
-    .skills dt { font-weight: 600; }
-    .skills dd { margin: 0 0 0.9rem; }
-
-    footer {
-      padding: 2rem 0 3rem;
-      border-top: 1px solid var(--rule);
-      color: var(--muted);
-      font-size: 0.875rem;
-    }
-
-    @media (min-width: 40rem) {
-      .page { padding: 0 1.5rem; }
-      .entry { grid-template-columns: 9.5rem 1fr; }
-      .skills { grid-template-columns: 11rem 1fr; }
-      .skills dd { margin-bottom: 0.6rem; }
-    }
-
-    @media (min-width: 64rem) {
-      .page {
-        display: grid;
-        grid-template-columns: 20rem minmax(0, 44rem);
-        column-gap: 5rem;
-        padding: 0 2rem;
-      }
-      .side {
-        grid-row: 1 / span 2;
-        position: sticky;
-        top: 0;
-        align-self: start;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        padding: 4.5rem 0 3rem;
-      }
-      .toc {
-        display: block;
-        margin-top: 2.5rem;
-        list-style: none;
-      }
-      .toc a {
-        display: block;
-        padding: 0.35rem 0 0.35rem 0.9rem;
-        border-left: 2px solid var(--rule);
-        color: var(--muted);
-        text-decoration: none;
-        font-weight: 500;
-      }
-      .toc a:hover { color: var(--ink); }
-      .toc a[aria-current="true"] { color: var(--ink); border-left-color: var(--accent); }
-      .side-foot { margin-top: auto; }
-      main { padding-top: 3.5rem; }
-      main section:first-child { border-top: 0; padding-top: 1rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
   <div class="page">
@@ -349,7 +99,7 @@
           <figure class="shot">
             <img src="assets/world-cup-predictor.jpg" width="1600" height="1067" loading="lazy" alt="The predictor's knockout bracket, from the Round of 32 to Spain winning the final.">
           </figure>
-          <h3>World Cup 2026 Predictor</h3>
+          <h3><a href="projects/world-cup-predictor.html">World Cup 2026 Predictor</a></h3>
           <p class="credit">Built 50/50 with Karim Assaad, 2026</p>
           <p class="summary">A prediction game for the 2026 World Cup. A trained model forecast every match, players made picks, and private leagues competed on a live leaderboard. Over 120 people across 8 leagues played during the tournament.</p>
           <ul class="points">
@@ -362,6 +112,7 @@
             <li>React</li><li>Supabase</li><li>PostgreSQL</li><li>Python</li><li>scikit-learn</li><li>GitHub Actions</li>
           </ul>
           <ul class="links">
+            <li><a class="case-link" href="projects/world-cup-predictor.html">Project details</a></li>
             <li><a href="https://worldcup26-lemon-five.vercel.app/">Live site</a></li>
             <li><a href="https://github.com/MarkHanna10/world-cup-2026-predictor">Source code</a></li>
           </ul>
@@ -371,13 +122,14 @@
           <figure class="shot">
             <img src="assets/dobbys-night-out.jpg" width="1600" height="1000" loading="lazy" alt="Dobby's Night Out title art in pixel lettering.">
           </figure>
-          <h3>Dobby's Night Out</h3>
+          <h3><a href="projects/dobbys-night-out.html">Dobby's Night Out</a></h3>
           <p class="credit">Team of 5, SE 2250, 2026</p>
           <p class="summary">A third-person adventure RPG in Unity 6. You play Dobby, a hairless cat, across five levels of quests, puzzles and hazards. I prototyped the Cat Smack combat ability in C#: a cooldown-limited attack with hit detection and a shared damage interface, which became a store power in the final game.</p>
           <ul class="tags" aria-label="Technologies">
             <li>Unity 6</li><li>C#</li><li>Git</li>
           </ul>
           <ul class="links">
+            <li><a class="case-link" href="projects/dobbys-night-out.html">Project details</a></li>
             <li><a href="https://github.com/MarkHanna10/Dobbys-Night-Out">Source code</a></li>
           </ul>
         </article>
@@ -386,13 +138,14 @@
           <figure class="shot">
             <img src="assets/course-explorer.jpg" width="1600" height="1018" loading="lazy" alt="Course Explorer filtering a sample catalog to Software Engineering courses, with one course's details open.">
           </figure>
-          <h3>Course Explorer</h3>
+          <h3><a href="projects/course-explorer.html">Course Explorer</a></h3>
           <p class="credit">SE 2202, 2025</p>
           <p class="summary">Load a course catalog from a JSON file, then filter it by department, level, credits and instructor and sort it by ID, title or semester. Validates every file and escapes all values before rendering.</p>
           <ul class="tags" aria-label="Technologies">
             <li>JavaScript</li><li>HTML</li><li>CSS</li><li>File API</li>
           </ul>
           <ul class="links">
+            <li><a class="case-link" href="projects/course-explorer.html">Project details</a></li>
             <li><a href="https://markhanna10.github.io/SE2202-MiniProject2/">Live demo</a></li>
             <li><a href="https://github.com/MarkHanna10/SE2202-MiniProject2">Source code</a></li>
           </ul>
@@ -400,19 +153,22 @@
 
         <ul class="more">
           <li>
-            <div class="head"><h3>4-bit ALU on FPGA</h3><span class="when">Jun 2025</span></div>
+            <div class="head"><h3><a href="projects/fpga-alu.html">4-bit ALU on FPGA</a></h3><span class="when">Jun 2025</span></div>
             <p class="summary">Designed a 4-bit ALU with a ripple-carry adder in VHDL and validated it at 50 MHz on an Intel MAX10. Simulated worst-case delay of 18 ns matched hardware testing within 5%.</p>
             <ul class="tags" aria-label="Technologies"><li>VHDL</li><li>FPGA</li><li>Quartus Prime</li></ul>
+            <ul class="links"><li><a class="case-link" href="projects/fpga-alu.html">Project details</a></li></ul>
           </li>
           <li>
-            <div class="head"><h3>Fall Detection System</h3><span class="when">Nov 2024</span></div>
+            <div class="head"><h3><a href="projects/fall-detection.html">Fall Detection System</a></h3><span class="when">Nov 2024</span></div>
             <p class="summary">Sampled an accelerometer at 200 Hz on an STM32 with threshold-based detection, sending GSM alerts in under 3 seconds at a 92% true-positive rate.</p>
             <ul class="tags" aria-label="Technologies"><li>C++</li><li>STM32</li><li>SolidWorks</li></ul>
+            <ul class="links"><li><a class="case-link" href="projects/fall-detection.html">Project details</a></li></ul>
           </li>
           <li>
-            <div class="head"><h3>Assignment Tracker</h3><span class="when">2025</span></div>
-            <p class="summary">An event-driven simulation of a course's assignment workflow using the Observer pattern, Promises and timers. <a href="https://github.com/MarkHanna10/SE2202_MiniProject3">Source code</a></p>
+            <div class="head"><h3><a href="projects/assignment-tracker.html">Assignment Tracker</a></h3><span class="when">Dec 2025</span></div>
+            <p class="summary">An event-driven simulation of a course's assignment workflow using the Observer pattern, Promises and timers.</p>
             <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Node.js</li></ul>
+            <ul class="links"><li><a class="case-link" href="projects/assignment-tracker.html">Project details</a></li><li><a href="https://github.com/MarkHanna10/SE2202_MiniProject3">Source code</a></li></ul>
           </li>
         </ul>
       </section>

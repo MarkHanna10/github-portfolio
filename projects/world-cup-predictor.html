@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>World Cup 2026 Predictor, Mark Hanna</title>
+  <meta name="description" content="World Cup 2026 Predictor: a React and Supabase prediction game with a trained match model, 10,000-run tournament simulation and live scores. Built 50/50 with Karim Assaad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="cs">
+    <nav class="cs-top" aria-label="Site">
+      <a href="../index.html#projects">← All projects</a>
+      <a href="../index.html">Mark Hanna</a>
+    </nav>
+
+    <header class="cs-head">
+      <h1>World Cup 2026 Predictor</h1>
+      <p class="lede">A prediction game for the 2026 FIFA World Cup. A trained model forecast all 104 matches, players made their own picks, and private leagues competed on a live leaderboard.</p>
+      <dl class="facts-grid">
+        <div><dt>Team</dt><dd>Mark Hanna and Karim Assaad, 50/50</dd></div>
+        <div><dt>Timeline</dt><dd>May to July 2026</dd></div>
+        <div><dt>Stack</dt><dd>React, Supabase, Python</dd></div>
+        <div><dt>Links</dt><dd><a href="https://worldcup26-lemon-five.vercel.app/">Live site</a>, <a href="https://github.com/MarkHanna10/world-cup-2026-predictor">Source</a></dd></div>
+      </dl>
+    </header>
+
+    <div class="stats">
+      <div><span class="v">120+</span><span class="k">players</span></div>
+      <div><span class="v">8</span><span class="k">leagues</span></div>
+      <div><span class="v">104</span><span class="k">matches forecast</span></div>
+      <div><span class="v">10,000</span><span class="k">simulated tournaments</span></div>
+    </div>
+
+    <figure class="fig">
+      <img src="../assets/projects/world-cup/home.jpg" width="1600" height="1000" alt="The predictor's home page after the tournament, with a banner announcing Spain as champion.">
+      <figcaption>The home page in its post-tournament state. The banner reports the final, and the main button leads to every result.</figcaption>
+    </figure>
+
+    <section aria-labelledby="h-what">
+      <h2 id="h-what">What it does</h2>
+      <p>Every fixture shows the model's forecast: win, draw and loss chances, expected goals and the most likely scoreline. Players sign in, pick each match with an optional confidence multiplier, build a knockout bracket, and compare scores with friends in public or private leagues.</p>
+      <figure class="fig">
+        <img src="../assets/projects/world-cup/group-predictions.jpg" width="1600" height="950" loading="lazy" alt="Group A match cards showing win percentages, predicted scores, expected goals and head-to-head records.">
+        <figcaption>Group A forecasts. Each card shows the predicted score, expected goals (xG), head-to-head record and a three-way probability bar. A "Market" badge marks matches blended with betting-market odds.</figcaption>
+      </figure>
+      <div class="fig-pair">
+        <figure class="fig">
+          <img src="../assets/projects/world-cup/standings.jpg" width="1600" height="1138" loading="lazy" alt="Group standings tables with points, goal difference and qualification markers.">
+          <figcaption>Live group tables, built from final scores in the database.</figcaption>
+        </figure>
+        <figure class="fig">
+          <img src="../assets/projects/world-cup/team-profile.jpg" width="1080" height="1520" loading="lazy" alt="Spain's team profile with ELO rating, recent form and World Cup history.">
+          <figcaption>Team profiles combine ELO rating, recent form and World Cup history.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-model">
+      <h2 id="h-model">The prediction model</h2>
+      <p>Each forecast runs in the browser from data files built ahead of time, so the model costs nothing to serve. Five steps turn team data into a full scoreline distribution.</p>
+      <ol class="flow" aria-label="Model pipeline">
+        <li class="step"><b>Features</b><span>ELO gap, form, head-to-head, attack and defence</span></li>
+        <li class="arrow" aria-hidden="true"></li>
+        <li class="step key"><b>Logistic regression</b><span>Win probability</span></li>
+        <li class="arrow" aria-hidden="true"></li>
+        <li class="step"><b>Market blend</b><span>45% model, 55% Polymarket</span></li>
+        <li class="arrow" aria-hidden="true"></li>
+        <li class="step"><b>Draw estimate</b><span>From each team's draw rate</span></li>
+        <li class="arrow" aria-hidden="true"></li>
+        <li class="step"><b>Poisson scorelines</b><span>xG and top scores</span></li>
+      </ol>
+      <p class="flow-caption">The market blend applies only where Polymarket had odds, which excludes every knockout match.</p>
+
+      <h3>Model features and learned weights</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>What it measures</th><th class="num">Weight</th></tr></thead>
+          <tbody>
+            <tr><td>elo_diff</td><td>Difference in ELO rating, per 100 points</td><td class="num">0.716</td></tr>
+            <tr><td>form_diff</td><td>Difference in weighted recent form</td><td class="num">−1.875</td></tr>
+            <tr><td>h2h_centered</td><td>Head-to-head win rate, centred on 0.5</td><td class="num">0.110</td></tr>
+            <tr><td>atk_diff</td><td>Difference in rolling goals scored</td><td class="num">0.148</td></tr>
+            <tr><td>def_diff</td><td>Difference in rolling goals conceded</td><td class="num">0.382</td></tr>
+            <tr><td>intercept</td><td>Home advantage baseline</td><td class="num">0.404</td></tr>
+          </tbody>
+          <caption>Weights from scripts/train_model.py, applied to standardized features. Trained on 2,448 decisive internationals since 2000 between World Cup nations.</caption>
+        </table>
+      </div>
+
+      <h3>Model parameters</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parameter</th><th class="num">Value</th></tr></thead>
+          <tbody>
+            <tr><td>Training samples</td><td class="num">2,448 matches</td></tr>
+            <tr><td>5-fold cross-validated accuracy</td><td class="num">68.6%</td></tr>
+            <tr><td>Market weight when odds exist</td><td class="num">0.55</td></tr>
+            <tr><td>Squad-strength weight (fixed)</td><td class="num">0.20</td></tr>
+            <tr><td>Draw probability range</td><td class="num">8% to 36%</td></tr>
+            <tr><td>Monte Carlo runs</td><td class="num">10,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-sim">
+      <h2 id="h-sim">Tournament simulation</h2>
+      <p>The simulator plays the whole tournament 10,000 times: group tables, the eight best third-placed teams, then the Round of 32 through the final, sampling every match from the same scoreline model. Counting how often each team reaches each round gives its odds.</p>
+      <figure class="fig">
+        <img src="../assets/projects/world-cup/simulation-odds.jpg" width="1600" height="920" loading="lazy" alt="Table of the top 16 teams with their chances of reaching each knockout round.">
+        <figcaption>The simulated-bracket view. Odds shown come from the latest model run.</figcaption>
+      </figure>
+
+      <h3>Pre-tournament favourites against the real result</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Team</th><th class="num">Title odds</th><th>Actual finish</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td>Spain</td><td class="num">18.4%</td><td>Champion</td></tr>
+            <tr><td>France</td><td class="num">13.8%</td><td>Fourth place</td></tr>
+            <tr><td>England</td><td class="num">13.2%</td><td>Third place</td></tr>
+            <tr><td>Morocco</td><td class="num">9.1%</td><td>Quarter-final</td></tr>
+            <tr><td>Argentina</td><td class="num">8.2%</td><td>Runner-up</td></tr>
+            <tr><td>Brazil</td><td class="num">6.5%</td><td>Round of 16</td></tr>
+            <tr><td>Portugal</td><td class="num">5.4%</td><td>Round of 16</td></tr>
+            <tr><td>Netherlands</td><td class="num">4.9%</td><td>Round of 32</td></tr>
+          </tbody>
+          <caption>Title odds from the 10,000-run simulation saved on 27 May 2026, two weeks before kickoff. The model's favourite won, and all four semi-finalists came from its top five.</caption>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-results">
+      <h2 id="h-results">How the forecasts held up</h2>
+      <p>A script froze each prediction before kickoff so nothing was graded with hindsight. Predictions frozen from 19 June onward give the cleanest test; earlier matches were back-filled after the fact.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Group-stage matches</th><th class="num">Correct result</th><th class="num">Accuracy</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td>Frozen before kickoff (19 June onward)</td><td class="num">29 of 43</td><td class="num">67.4%</td></tr>
+            <tr><td>All 72, including back-filled</td><td class="num">47 of 72</td><td class="num">65.3%</td></tr>
+          </tbody>
+          <caption>A pick counts as correct when the model's most likely outcome matched the result. The model never ranks a draw first, so all 20 group-stage draws count as misses.</caption>
+        </table>
+      </div>
+      <figure class="fig">
+        <img src="../assets/projects/world-cup/knockout-bracket.jpg" width="1600" height="1289" loading="lazy" alt="The knockout bracket from the Round of 32 to the final, with Spain as champion and penalty wins marked.">
+        <figcaption>The completed knockout bracket. Ties decided on penalties show "pens" next to the score.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="h-arch">
+      <h2 id="h-arch">Architecture</h2>
+      <p>Two paths feed the app. A scheduled pipeline rebuilds the model's data files and redeploys the site. A database function pulls live scores every minute during matches and pushes them to every open browser.</p>
+      <figure class="fig">
+        <div class="scroll"><svg class="dg frame" viewBox="0 0 700 420" role="img" aria-labelledby="arch-t arch-d">
+          <title id="arch-t">System architecture</title>
+          <desc id="arch-d">Polymarket, Kaggle and FotMob feed a data pipeline run by GitHub Actions, which builds JSON model inputs bundled into the React app. FotMob also feeds a Supabase Edge Function on a one-minute schedule, which writes to Postgres with row-level security. Postgres pushes updates to the app over Realtime, and the app reads and writes picks and leagues.</desc>
+          <defs>
+            <marker id="arch-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+            <marker id="arch-aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah-a" d="M0,0 L10,5 L0,10 z"/></marker>
+          </defs>
+          <text class="ts" x="20" y="30">Sources</text>
+          <rect class="box" x="20" y="44" width="130" height="44" rx="6"/><text class="t" x="85" y="71" text-anchor="middle">Polymarket</text>
+          <rect class="box" x="20" y="104" width="130" height="44" rx="6"/><text class="t" x="85" y="131" text-anchor="middle">Kaggle results</text>
+          <rect class="box" x="20" y="214" width="130" height="44" rx="6"/><text class="t" x="85" y="241" text-anchor="middle">FotMob</text>
+
+          <rect class="box" x="210" y="80" width="170" height="64" rx="6"/>
+          <text class="tb" x="295" y="107" text-anchor="middle">Data pipeline</text>
+          <text class="ts" x="295" y="127" text-anchor="middle">scripts + GitHub Actions</text>
+
+          <rect class="box" x="430" y="80" width="150" height="64" rx="6"/>
+          <text class="tb" x="505" y="107" text-anchor="middle">Model inputs</text>
+          <text class="ts" x="505" y="127" text-anchor="middle">JSON, bundled at build</text>
+
+          <rect class="box-a" x="520" y="190" width="160" height="80" rx="6"/>
+          <text class="tb" x="600" y="222" text-anchor="middle">React app</text>
+          <text class="ts" x="600" y="242" text-anchor="middle">model runs in the browser</text>
+
+          <rect class="box" x="210" y="310" width="170" height="64" rx="6"/>
+          <text class="tb" x="295" y="337" text-anchor="middle">Edge Function</text>
+          <text class="ts" x="295" y="357" text-anchor="middle">pg_cron, every minute</text>
+
+          <rect class="box" x="430" y="310" width="150" height="64" rx="6"/>
+          <text class="tb" x="505" y="337" text-anchor="middle">Postgres + RLS</text>
+          <text class="ts" x="505" y="357" text-anchor="middle">picks, leagues, results</text>
+
+          <path class="ln" d="M150 66 L180 66 L180 104 L208 104" marker-end="url(#arch-ah)"/>
+          <path class="ln" d="M150 126 L180 126 L180 120 L208 120" marker-end="url(#arch-ah)"/>
+          <path class="ln" d="M150 236 L180 236 L180 132 L208 132" marker-end="url(#arch-ah)"/>
+          <path class="ln" d="M150 236 L180 236 L180 342 L208 342" marker-end="url(#arch-ah)"/>
+          <path class="ln" d="M380 112 L428 112" marker-end="url(#arch-ah)"/>
+          <path class="ln-a" d="M580 112 L630 112 L630 188" marker-end="url(#arch-aha)"/>
+          <path class="ln" d="M380 342 L428 342" marker-end="url(#arch-ah)"/>
+          <path class="ln-a" d="M580 342 L630 342 L630 272" marker-start="url(#arch-aha)" marker-end="url(#arch-aha)"/>
+          <text class="ts" x="640" y="300">Realtime,</text>
+          <text class="ts" x="640" y="316">picks</text>
+          <text class="ts" x="395" y="100">daily</text>
+        </svg></div>
+        <figcaption>Static model data travels the top path. Live scores, picks and leagues travel the bottom path through Supabase.</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Layer</th><th>Tools</th></tr></thead>
+          <tbody>
+            <tr><td>Frontend</td><td>React 19, Vite, Tailwind CSS</td></tr>
+            <tr><td>Backend</td><td>Supabase Postgres with row-level security, Auth, Realtime, Edge Functions, pg_cron</td></tr>
+            <tr><td>Model</td><td>Python, scikit-learn, NumPy</td></tr>
+            <tr><td>Data</td><td>FotMob, Polymarket, Kaggle international results</td></tr>
+            <tr><td>Quality</td><td>Vitest unit tests, GitHub Actions CI, Dependabot</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-lessons">
+      <h2 id="h-lessons">What I'd do next</h2>
+      <p>Draws are the clearest gap. The model never ranks a draw as the most likely outcome, and the group stage produced 20 of them. A dedicated draw model, or a three-way classifier instead of win-or-loss, would be the first change.</p>
+      <p>After the tournament, a data audit found the live feed had filed several knockout scores under the wrong match numbers. Rebuilding those results, cross-checked against two independent sources, also added proper support for penalty shootouts.</p>
+    </section>
+
+    <nav class="cs-next" aria-label="More projects">
+      <a href="assignment-tracker.html"><span>Previous</span>Assignment Tracker</a>
+      <a href="dobbys-night-out.html"><span>Next</span>Dobby's Night Out</a>
+    </nav>
+  </div>
+</body>
+</html>

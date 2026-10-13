@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assignment Tracker, Mark Hanna</title>
+  <meta name="description" content="Assignment Tracker: an event-driven JavaScript simulation of a course's assignment workflow, built on the Observer pattern, Promises and timers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <div class="cs">
+    <nav class="cs-top" aria-label="Site">
+      <a href="../index.html#projects">← All projects</a>
+      <a href="../index.html">Mark Hanna</a>
+    </nav>
+
+    <header class="cs-head">
+      <h1>Assignment Tracker</h1>
+      <p class="lede">An event-driven simulation of a course's assignment workflow. Students work, submit and get graded on timers, and an observer reports every change the moment it happens.</p>
+      <dl class="facts-grid">
+        <div><dt>Course</dt><dd>SE 2202, Western University</dd></div>
+        <div><dt>Timeline</dt><dd>December 2025</dd></div>
+        <div><dt>Stack</dt><dd>JavaScript, Node.js</dd></div>
+        <div><dt>Links</dt><dd><a href="https://github.com/MarkHanna10/SE2202_MiniProject3">Source</a></dd></div>
+      </dl>
+    </header>
+
+    <section aria-labelledby="h-states">
+      <h2 id="h-states">Assignment lifecycle</h2>
+      <p>Every assignment moves through a fixed set of states. A grade above 50 passes. A final reminder cuts work short and forces an immediate submission.</p>
+      <figure class="fig">
+        <div class="scroll"><svg class="dg frame" viewBox="0 0 680 250" role="img" aria-labelledby="st-t st-d">
+          <title id="st-t">Assignment states</title>
+          <desc id="st-d">An assignment starts as released, moves to working, then submitted, then passed or failed. A final reminder can interrupt released or working and force a submission.</desc>
+          <defs><marker id="st-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="st-aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ah-a" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+          <rect class="box" x="20" y="70" width="110" height="46" rx="23"/><text class="t" x="75" y="98" text-anchor="middle">released</text>
+          <rect class="box" x="175" y="70" width="110" height="46" rx="23"/><text class="t" x="230" y="98" text-anchor="middle">working</text>
+          <rect class="box" x="345" y="70" width="120" height="46" rx="23"/><text class="t" x="405" y="98" text-anchor="middle">submitted</text>
+          <rect class="box-a" x="540" y="22" width="120" height="46" rx="23"/><text class="t" x="600" y="50" text-anchor="middle">passed</text>
+          <rect class="box" x="540" y="118" width="120" height="46" rx="23"/><text class="t" x="600" y="146" text-anchor="middle">failed</text>
+          <rect class="box" x="175" y="180" width="140" height="46" rx="23"/><text class="t" x="245" y="208" text-anchor="middle">final reminder</text>
+          <path class="ln" d="M130 93 L173 93" marker-end="url(#st-ah)"/>
+          <path class="ln" d="M285 93 L343 93" marker-end="url(#st-ah)"/><text class="ts" x="314" y="84" text-anchor="middle">500 ms</text>
+          <path class="ln-a" d="M465 85 L538 50" marker-end="url(#st-aha)"/><text class="ts" x="532" y="18" text-anchor="end">grade &gt; 50</text>
+          <path class="ln" d="M465 101 L538 136" marker-end="url(#st-ah)"/><text class="ts" x="470" y="160">grade ≤ 50</text>
+          <path class="ln" d="M75 116 L75 203 L173 203" stroke-dasharray="5 4" marker-end="url(#st-ah)"/>
+          <path class="ln" d="M230 116 L230 178" stroke-dasharray="5 4" marker-end="url(#st-ah)"/>
+          <path class="ln" d="M315 203 L405 203 L405 118" marker-end="url(#st-ah)"/><text class="ts" x="330" y="196">forced</text>
+        </svg></div>
+        <figcaption>States and transitions. Dashed lines show the reminder interrupting unfinished work.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="h-design">
+      <h2 id="h-design">Design</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Class</th><th>Responsibility</th></tr></thead>
+          <tbody>
+            <tr><td>Observer</td><td>Formats and prints one message per status change</td></tr>
+            <tr><td>Assignment</td><td>Name, status and a private <code>#grade</code> field</td></tr>
+            <tr><td>Student</td><td>Owns assignments, runs work and grading timers, averages grades</td></tr>
+            <tr><td>ClassList</td><td>Manages students, releases work in parallel, sends reminders</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Concept</th><th>Where it appears</th></tr></thead>
+          <tbody>
+            <tr><td>Observer pattern</td><td>Students notify an observer instead of printing, keeping output separate from state</td></tr>
+            <tr><td>Promises</td><td><code>startWorking()</code> returns a Promise; <code>releaseAssignmentsParallel()</code> uses <code>Promise.all</code></td></tr>
+            <tr><td>Timers</td><td>500 ms to finish work, 500 ms to grade, 0 ms when a reminder forces submission</td></tr>
+            <tr><td>Encapsulation</td><td>The grade lives in a private class field, reachable only through its methods</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-run">
+      <h2 id="h-run">A sample run</h2>
+      <p>The demo releases two assignments to two students, starts their work, then sends a final reminder for A1 at 200 ms.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="num">Time</th><th>Event</th></tr></thead>
+          <tbody>
+            <tr><td class="num">0 ms</td><td>A1 and A2 released to Alice and Bob in parallel; Alice starts A1, Bob starts A2</td></tr>
+            <tr><td class="num">200 ms</td><td>Final reminder for A1: Alice's work timer is cancelled and both students submit A1</td></tr>
+            <tr><td class="num">≈200 ms</td><td>Forced A1 submissions are graded immediately</td></tr>
+            <tr><td class="num">500 ms</td><td>Bob's A2 work timer ends and he submits</td></tr>
+            <tr><td class="num">1,000 ms</td><td>Bob's A2 is graded</td></tr>
+            <tr><td class="num">1,500 ms</td><td>Final report printed</td></tr>
+          </tbody>
+          <caption>Timings from the timers in assignment-tracker.js. Grades are random, so pass and fail vary between runs.</caption>
+        </table>
+      </div>
+<pre class="console" aria-label="Console output from one run">$ npm start
+Alice Smith has been added to the classlist.
+Bob Jones has been added to the classlist.
+Observer → Alice Smith, A1 has been released.
+Observer → Bob Jones, A1 has been released.
+Observer → Alice Smith, A2 has been released.
+Observer → Bob Jones, A2 has been released.
+Observer → Alice Smith is working on A1.
+Observer → Bob Jones is working on A2.
+Observer → Alice Smith - FINAL REMINDER for A1.
+Observer → Alice Smith has submitted A1.
+Observer → Bob Jones - FINAL REMINDER for A1.
+Observer → Bob Jones has submitted A1.
+Observer → Alice Smith has failed A1
+Observer → Bob Jones has passed A1
+Observer → Bob Jones has submitted A2.
+Observer → Bob Jones has failed A2
+
+// === Final Grades (After all async operations) ===
+Alice Smith A1 Status: failed, Grade: 14
+Bob Jones A1 Status: passed
+Bob Jones A2 Status: failed, Grade: 45
+Outstanding Assignments (A2): Alice Smith</pre>
+      <p>Alice still shows as outstanding for A2: she never started it, so it stays in the released state.</p>
+    </section>
+
+    <nav class="cs-next" aria-label="More projects">
+      <a href="fall-detection.html"><span>Previous</span>Fall Detection System</a>
+      <a href="world-cup-predictor.html"><span>Next</span>World Cup 2026 Predictor</a>
+    </nav>
+  </div>
+</body>
+</html>
