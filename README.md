@@ -2,7 +2,7 @@
 
 Source for my personal site: [markhanna10.github.io/github-portfolio](https://markhanna10.github.io/github-portfolio/)
 
-A static site with no build step, served by GitHub Pages. `index.html` is the main page, and `projects/` holds a detail page per project with screenshots, diagrams and data tables. All pages share `assets/site.css`. Diagrams are inline SVG, so they follow the reader's light or dark mode. Type is IBM Plex Sans. The accent colour is Western purple. The page follows the reader's light or dark mode setting.
+A static site with no build step, served by GitHub Pages. Everything lives in `index.html`. Clicking a project opens a panel over the page with its screenshots, diagrams and data tables, and each panel has its own link, such as `#project-world-cup-predictor`. All pages share `assets/site.css`. Diagrams are inline SVG, so they follow the reader's light or dark mode. Type is IBM Plex Sans. The accent colour is Western purple. The page follows the reader's light or dark mode setting.
 
 To preview locally:
 

@@ -460,3 +460,80 @@
 /* Diagrams keep a readable size on phones and scroll sideways instead of shrinking */
 .fig .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .fig .scroll svg { min-width: 600px; }
+
+/* ---------- Project detail panel (opens over the main page) ---------- */
+.card { cursor: pointer; }
+article.project.card { padding: 1rem; margin-left: -1rem; margin-right: -1rem; border-radius: 10px; transition: background-color 0.15s; }
+article.project.card:hover { background: var(--surface); }
+.more > li.card { padding-left: 1rem; padding-right: 1rem; margin-left: -1rem; margin-right: -1rem; transition: background-color 0.15s; }
+.more > li.card:hover { background: var(--surface); }
+.project + .project { margin-top: 2rem; }
+
+html.pd-open { overflow: hidden; }
+dialog.pd {
+  width: min(58rem, calc(100vw - 2rem));
+  max-width: none;
+  max-height: calc(100vh - 2rem);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+}
+dialog.pd[open] { display: flex; flex-direction: column; }
+dialog.pd::backdrop { background: rgba(12, 9, 18, 0.62); }
+.pd-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface);
+  flex: none;
+}
+.pd-bar-title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pd-close {
+  flex: none;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+.pd-close:hover { border-color: var(--accent); color: var(--accent); }
+.cs.pd-body {
+  max-width: none;
+  margin: 0;
+  padding: 0 1.5rem 2.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.pd-body .cs-head { padding-top: 1.5rem; }
+.pd-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.pd-body h3 { margin: 0 0 1rem; font-size: 1.375rem; font-weight: 600; }
+.pd-body h4 { margin: 1.75rem 0 0.6rem; font-size: 1.0625rem; font-weight: 600; }
+@media (max-width: 40rem) {
+  dialog.pd {
+    width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+  .cs.pd-body { padding: 0 1rem 2rem; }
+}
+.pd-body:focus { outline: none; }
+.pd-bar-title { opacity: 0; transition: opacity 0.15s; }
+dialog.pd.scrolled .pd-bar-title { opacity: 1; }
