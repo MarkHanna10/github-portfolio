@@ -9,9 +9,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://markhanna10.github.io/github-portfolio/">
+  <meta name="theme-color" content="#4f2683">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mark Hanna, Software Engineering Student">
+  <meta property="og:description" content="Back-end, full-stack and embedded projects. Seeking a 12+ month co-op.">
+  <meta property="og:url" content="https://markhanna10.github.io/github-portfolio/">
+  <meta property="og:image" content="https://markhanna10.github.io/github-portfolio/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-  <div class="page">
+  <a class="skip" href="#main">Skip to content</a>
+  <nav class="mnav" aria-label="Sections, mobile">
+    <a class="mnav-name" href="#top">Mark Hanna</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="assets/Mark_Hanna_Resume.pdf">Resume</a></li>
+    </ul>
+  </nav>
+  <div class="page" id="top">
     <header class="side">
       <h1 class="name">Mark Hanna</h1>
       <p class="role">Software Engineering student, Western University</p>
@@ -38,7 +59,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <section id="about" class="about" aria-labelledby="about-h">
         <h2 id="about-h">About</h2>
         <p>I'm a third-year Software Engineering student at Western University, graduating in 2029. My work spans the stack: REST APIs and PostgreSQL tuning at RM Health Supplies, a React and Supabase prediction game with over 120 users, and embedded C++ on STM32 boards for Western Baja Racing.</p>
@@ -94,11 +115,13 @@
 
       <section id="projects" aria-labelledby="projects-h">
         <h2 id="projects-h">Projects</h2>
+        <p class="section-intro">Six projects across full-stack web, game development and embedded hardware. Select any project to see its screenshots, diagrams and results.</p>
 
         <article class="project card" data-card="world-cup-predictor">
           <figure class="shot">
             <img src="assets/world-cup-predictor.jpg" width="1600" height="1067" loading="lazy" alt="The predictor's knockout bracket, from the Round of 32 to Spain winning the final.">
           </figure>
+          <p class="kind"><span>Full-stack web</span><span>Co-built 50/50</span></p>
           <h3><a href="#project-world-cup-predictor" data-open="world-cup-predictor">World Cup 2026 Predictor</a></h3>
           <p class="credit">Built 50/50 with Karim Assaad, 2026</p>
           <p class="summary">A prediction game for the 2026 World Cup. A trained model forecast every match, players made picks, and private leagues competed on a live leaderboard. Over 120 people across 8 leagues played during the tournament.</p>
@@ -122,6 +145,7 @@
           <figure class="shot">
             <img src="assets/dobbys-night-out.jpg" width="1600" height="1000" loading="lazy" alt="Dobby's Night Out title art in pixel lettering.">
           </figure>
+          <p class="kind"><span>Game development</span><span>Team of 5</span></p>
           <h3><a href="#project-dobbys-night-out" data-open="dobbys-night-out">Dobby's Night Out</a></h3>
           <p class="credit">Team of 5, SE 2250, 2026</p>
           <p class="summary">A third-person adventure RPG in Unity 6. You play Dobby, a hairless cat, across five levels of quests, puzzles and hazards. I prototyped the Cat Smack combat ability in C#: a cooldown-limited attack with hit detection and a shared damage interface, which became a store power in the final game.</p>
@@ -138,6 +162,7 @@
           <figure class="shot">
             <img src="assets/course-explorer.jpg" width="1600" height="1018" loading="lazy" alt="Course Explorer filtering a sample catalog to Software Engineering courses, with one course's details open.">
           </figure>
+          <p class="kind"><span>Front-end web</span><span>Solo</span></p>
           <h3><a href="#project-course-explorer" data-open="course-explorer">Course Explorer</a></h3>
           <p class="credit">SE 2202, 2025</p>
           <p class="summary">Load a course catalog from a JSON file, then filter it by department, level, credits and instructor and sort it by ID, title or semester. Validates every file and escapes all values before rendering.</p>
@@ -153,19 +178,22 @@
 
         <ul class="more">
           <li class="card" data-card="fpga-alu">
-            <div class="head"><h3><a href="#project-fpga-alu" data-open="fpga-alu">4-bit ALU on FPGA</a></h3><span class="when">Jun 2025</span></div>
+            <div class="head"><p class="kind"><span>Digital hardware</span><span>Solo</span></p>
+          <h3><a href="#project-fpga-alu" data-open="fpga-alu">4-bit ALU on FPGA</a></h3><span class="when">Jun 2025</span></div>
             <p class="summary">Designed a 4-bit ALU with a ripple-carry adder in VHDL and validated it at 50 MHz on an Intel MAX10. Simulated worst-case delay of 18 ns matched hardware testing within 5%.</p>
             <ul class="tags" aria-label="Technologies"><li>VHDL</li><li>FPGA</li><li>Quartus Prime</li></ul>
             <ul class="links"><li><a class="case-link" href="#project-fpga-alu" data-open="fpga-alu">View project details</a></li></ul>
           </li>
           <li class="card" data-card="fall-detection">
-            <div class="head"><h3><a href="#project-fall-detection" data-open="fall-detection">Fall Detection System</a></h3><span class="when">Nov 2024</span></div>
+            <div class="head"><p class="kind"><span>Embedded systems</span><span>Solo</span></p>
+          <h3><a href="#project-fall-detection" data-open="fall-detection">Fall Detection System</a></h3><span class="when">Nov 2024</span></div>
             <p class="summary">Sampled an accelerometer at 200 Hz on an STM32 with threshold-based detection, sending GSM alerts in under 3 seconds at a 92% true-positive rate.</p>
             <ul class="tags" aria-label="Technologies"><li>C++</li><li>STM32</li><li>SolidWorks</li></ul>
             <ul class="links"><li><a class="case-link" href="#project-fall-detection" data-open="fall-detection">View project details</a></li></ul>
           </li>
           <li class="card" data-card="assignment-tracker">
-            <div class="head"><h3><a href="#project-assignment-tracker" data-open="assignment-tracker">Assignment Tracker</a></h3><span class="when">Dec 2025</span></div>
+            <div class="head"><p class="kind"><span>JavaScript</span><span>Solo</span></p>
+          <h3><a href="#project-assignment-tracker" data-open="assignment-tracker">Assignment Tracker</a></h3><span class="when">Dec 2025</span></div>
             <p class="summary">An event-driven simulation of a course's assignment workflow using the Observer pattern, Promises and timers.</p>
             <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Node.js</li></ul>
             <ul class="links"><li><a class="case-link" href="#project-assignment-tracker" data-open="assignment-tracker">View project details</a></li><li><a href="https://github.com/MarkHanna10/SE2202_MiniProject3">Source code</a></li></ul>
@@ -190,23 +218,25 @@
           <div>
             <h3>Western University</h3>
             <p class="org">Bachelor of Engineering Science, Software Engineering, London, Ontario</p>
+            <p class="coursework">Relevant coursework: database management systems, software project management, requirements engineering, algorithms and data structures, scripting languages.</p>
           </div>
         </article>
       </section>
     </main>
 
     <footer>
-      <p>Mark Hanna, Ontario. <a href="mailto:markshanna2006@gmail.com">markshanna2006@gmail.com</a></p>
+      <p>Mark Hanna, Ontario. <a href="mailto:markshanna2006@gmail.com">markshanna2006@gmail.com</a>, <a href="https://www.linkedin.com/in/markhanna10">LinkedIn</a>, <a href="https://github.com/MarkHanna10">GitHub</a></p>
+      <p class="updated">Last updated October 2026</p>
     </footer>
   </div>
 
-    <!-- project-dialogs:start -->
+      <!-- project-dialogs:start -->
   <dialog class="pd" id="project-world-cup-predictor" aria-labelledby="world-cup-predictor-title">
     <div class="pd-bar">
       <span class="pd-bar-title" aria-hidden="true">World Cup 2026 Predictor</span>
       <button type="button" class="pd-close" data-close>Close</button>
     </div>
-    <div class="cs pd-body" tabindex="-1" autofocus>
+    <div class="cs pd-body" tabindex="0" autofocus>
 
     <header class="cs-head">
       <h2 class="pd-title" id="world-cup-predictor-title">World Cup 2026 Predictor</h2>
@@ -216,6 +246,11 @@
         <div><dt>Timeline</dt><dd>May to July 2026</dd></div>
         <div><dt>Stack</dt><dd>React, Supabase, Python</dd></div>
         <div><dt>Links</dt><dd><a href="https://worldcup26-lemon-five.vercel.app/">Live site</a>, <a href="https://github.com/MarkHanna10/world-cup-2026-predictor">Source</a></dd></div>
+      </dl>
+      <dl class="snapshot">
+        <div><dt>Goal</dt><dd>Forecast all 104 matches of the first 48-team World Cup and let players compete on their own picks.</dd></div>
+        <div><dt>My role</dt><dd>Co-built 50/50 with Karim Assaad.</dd></div>
+        <div><dt>Result</dt><dd>120+ players across 8 leagues. The model's pre-tournament favourite, Spain, won the title.</dd></div>
       </dl>
     </header>
 
@@ -413,6 +448,10 @@
       <p>Draws are the clearest gap. The model never ranks a draw as the most likely outcome, and the group stage produced 20 of them. A dedicated draw model, or a three-way classifier instead of win-or-loss, would be the first change.</p>
       <p>After the tournament, a data audit found the live feed had filed several knockout scores under the wrong match numbers. Rebuilding those results, cross-checked against two independent sources, also added proper support for penalty shootouts.</p>
     </section>
+      <nav class="pd-next" aria-label="Other projects">
+        <a href="#project-assignment-tracker" data-open="assignment-tracker"><span>Previous project</span>Assignment Tracker</a>
+        <a href="#project-dobbys-night-out" data-open="dobbys-night-out"><span>Next project</span>Dobby's Night Out</a>
+      </nav>
     </div>
   </dialog>
   <dialog class="pd" id="project-dobbys-night-out" aria-labelledby="dobbys-night-out-title">
@@ -420,7 +459,7 @@
       <span class="pd-bar-title" aria-hidden="true">Dobby's Night Out</span>
       <button type="button" class="pd-close" data-close>Close</button>
     </div>
-    <div class="cs pd-body" tabindex="-1" autofocus>
+    <div class="cs pd-body" tabindex="0" autofocus>
 
     <header class="cs-head">
       <h2 class="pd-title" id="dobbys-night-out-title">Dobby's Night Out</h2>
@@ -430,6 +469,11 @@
         <div><dt>Timeline</dt><dd>3 weeks, March to April 2026</dd></div>
         <div><dt>Stack</dt><dd>Unity 6, C#, Git</dd></div>
         <div><dt>Links</dt><dd><a href="https://github.com/MarkHanna10/Dobbys-Night-Out">Source</a></dd></div>
+      </dl>
+      <dl class="snapshot">
+        <div><dt>Goal</dt><dd>Build a five-level adventure game as a team of five in three weeks.</dd></div>
+        <div><dt>My role</dt><dd>Prototyped the Cat Smack combat ability and the shared damage interface behind it.</dd></div>
+        <div><dt>Result</dt><dd>A playable five-level game. Cat Smack ships in it as a purchasable power.</dd></div>
       </dl>
     </header>
 
@@ -599,6 +643,10 @@ foreach (Collider2D enemy in hitEnemies)
         <figcaption>The options menu, with character select, settings, controls and help.</figcaption>
       </figure>
     </section>
+      <nav class="pd-next" aria-label="Other projects">
+        <a href="#project-world-cup-predictor" data-open="world-cup-predictor"><span>Previous project</span>World Cup 2026 Predictor</a>
+        <a href="#project-course-explorer" data-open="course-explorer"><span>Next project</span>Course Explorer</a>
+      </nav>
     </div>
   </dialog>
   <dialog class="pd" id="project-course-explorer" aria-labelledby="course-explorer-title">
@@ -606,7 +654,7 @@ foreach (Collider2D enemy in hitEnemies)
       <span class="pd-bar-title" aria-hidden="true">Course Explorer</span>
       <button type="button" class="pd-close" data-close>Close</button>
     </div>
-    <div class="cs pd-body" tabindex="-1" autofocus>
+    <div class="cs pd-body" tabindex="0" autofocus>
 
     <header class="cs-head">
       <h2 class="pd-title" id="course-explorer-title">Course Explorer</h2>
@@ -616,6 +664,11 @@ foreach (Collider2D enemy in hitEnemies)
         <div><dt>Timeline</dt><dd>November 2025</dd></div>
         <div><dt>Stack</dt><dd>JavaScript, HTML, CSS</dd></div>
         <div><dt>Links</dt><dd><a href="https://markhanna10.github.io/SE2202-MiniProject2/">Live demo</a>, <a href="https://github.com/MarkHanna10/SE2202-MiniProject2">Source</a></dd></div>
+      </dl>
+      <dl class="snapshot">
+        <div><dt>Goal</dt><dd>Let anyone browse a course catalog from a JSON file, with no server.</dd></div>
+        <div><dt>My role</dt><dd>Solo: interface, validation, filtering and sorting.</dd></div>
+        <div><dt>Result</dt><dd>Catches 6 kinds of bad input with a clear message for each. Live demo with a 12-course sample.</dd></div>
       </dl>
     </header>
 
@@ -710,6 +763,10 @@ foreach (Collider2D enemy in hitEnemies)
         </table>
       </div>
     </section>
+      <nav class="pd-next" aria-label="Other projects">
+        <a href="#project-dobbys-night-out" data-open="dobbys-night-out"><span>Previous project</span>Dobby's Night Out</a>
+        <a href="#project-fpga-alu" data-open="fpga-alu"><span>Next project</span>4-bit ALU on FPGA</a>
+      </nav>
     </div>
   </dialog>
   <dialog class="pd" id="project-fpga-alu" aria-labelledby="fpga-alu-title">
@@ -717,7 +774,7 @@ foreach (Collider2D enemy in hitEnemies)
       <span class="pd-bar-title" aria-hidden="true">4-bit ALU on FPGA</span>
       <button type="button" class="pd-close" data-close>Close</button>
     </div>
-    <div class="cs pd-body" tabindex="-1" autofocus>
+    <div class="cs pd-body" tabindex="0" autofocus>
 
     <header class="cs-head">
       <h2 class="pd-title" id="fpga-alu-title">4-bit ALU on FPGA</h2>
@@ -727,6 +784,11 @@ foreach (Collider2D enemy in hitEnemies)
         <div><dt>Timeline</dt><dd>June 2025</dd></div>
         <div><dt>Stack</dt><dd>VHDL, Quartus Prime</dd></div>
         <div><dt>Hardware</dt><dd>Intel MAX10 FPGA</dd></div>
+      </dl>
+      <dl class="snapshot">
+        <div><dt>Goal</dt><dd>Design a 4-bit ALU and confirm its timing on real hardware.</dd></div>
+        <div><dt>My role</dt><dd>Solo: RTL design, simulation and hardware testing.</dd></div>
+        <div><dt>Result</dt><dd>Ran at 50 MHz with 2 ns of timing slack, using 2% of the FPGA's logic.</dd></div>
       </dl>
     </header>
 
@@ -850,6 +912,10 @@ foreach (Collider2D enemy in hitEnemies)
         <li class="step key"><b>Check on hardware</b><span>LEDs and 7-segment output</span></li>
       </ol>
     </section>
+      <nav class="pd-next" aria-label="Other projects">
+        <a href="#project-course-explorer" data-open="course-explorer"><span>Previous project</span>Course Explorer</a>
+        <a href="#project-fall-detection" data-open="fall-detection"><span>Next project</span>Fall Detection System</a>
+      </nav>
     </div>
   </dialog>
   <dialog class="pd" id="project-fall-detection" aria-labelledby="fall-detection-title">
@@ -857,7 +923,7 @@ foreach (Collider2D enemy in hitEnemies)
       <span class="pd-bar-title" aria-hidden="true">Fall Detection System</span>
       <button type="button" class="pd-close" data-close>Close</button>
     </div>
-    <div class="cs pd-body" tabindex="-1" autofocus>
+    <div class="cs pd-body" tabindex="0" autofocus>
 
     <header class="cs-head">
       <h2 class="pd-title" id="fall-detection-title">Fall Detection System</h2>
@@ -867,6 +933,11 @@ foreach (Collider2D enemy in hitEnemies)
         <div><dt>Timeline</dt><dd>November 2024</dd></div>
         <div><dt>Stack</dt><dd>C, C++, STM32CubeIDE</dd></div>
         <div><dt>Hardware</dt><dd>STM32, accelerometer, GSM module</dd></div>
+      </dl>
+      <dl class="snapshot">
+        <div><dt>Goal</dt><dd>Detect a fall and alert someone within seconds.</dd></div>
+        <div><dt>My role</dt><dd>Solo: firmware, detection logic and hardware integration.</dd></div>
+        <div><dt>Result</dt><dd>92% true-positive detection, with alerts sent in under 3 seconds.</dd></div>
       </dl>
     </header>
 
@@ -949,6 +1020,10 @@ foreach (Collider2D enemy in hitEnemies)
         </table>
       </div>
     </section>
+      <nav class="pd-next" aria-label="Other projects">
+        <a href="#project-fpga-alu" data-open="fpga-alu"><span>Previous project</span>4-bit ALU on FPGA</a>
+        <a href="#project-assignment-tracker" data-open="assignment-tracker"><span>Next project</span>Assignment Tracker</a>
+      </nav>
     </div>
   </dialog>
   <dialog class="pd" id="project-assignment-tracker" aria-labelledby="assignment-tracker-title">
@@ -956,7 +1031,7 @@ foreach (Collider2D enemy in hitEnemies)
       <span class="pd-bar-title" aria-hidden="true">Assignment Tracker</span>
       <button type="button" class="pd-close" data-close>Close</button>
     </div>
-    <div class="cs pd-body" tabindex="-1" autofocus>
+    <div class="cs pd-body" tabindex="0" autofocus>
 
     <header class="cs-head">
       <h2 class="pd-title" id="assignment-tracker-title">Assignment Tracker</h2>
@@ -966,6 +1041,11 @@ foreach (Collider2D enemy in hitEnemies)
         <div><dt>Timeline</dt><dd>December 2025</dd></div>
         <div><dt>Stack</dt><dd>JavaScript, Node.js</dd></div>
         <div><dt>Links</dt><dd><a href="https://github.com/MarkHanna10/SE2202_MiniProject3">Source</a></dd></div>
+      </dl>
+      <dl class="snapshot">
+        <div><dt>Goal</dt><dd>Model a course's assignment workflow as a set of asynchronous events.</dd></div>
+        <div><dt>My role</dt><dd>Solo.</dd></div>
+        <div><dt>Result</dt><dd>Every state change is reported in order, including submissions forced by a reminder.</dd></div>
       </dl>
     </header>
 
@@ -1064,27 +1144,41 @@ Bob Jones A2 Status: failed, Grade: 45
 Outstanding Assignments (A2): Alice Smith</pre>
       <p>Alice still shows as outstanding for A2: she never started it, so it stays in the released state.</p>
     </section>
+      <nav class="pd-next" aria-label="Other projects">
+        <a href="#project-fall-detection" data-open="fall-detection"><span>Previous project</span>Fall Detection System</a>
+        <a href="#project-world-cup-predictor" data-open="world-cup-predictor"><span>Next project</span>World Cup 2026 Predictor</a>
+      </nav>
     </div>
   </dialog>
   <!-- project-dialogs:end -->
   <script>
     // Project detail panels: open on click, close with the button, Esc or a click outside
     (function () {
+      var pushed = false;   // true when opening a panel added a history entry
       function panel(slug) { return document.getElementById('project-' + slug); }
+      function current() { return document.querySelector('dialog.pd[open]'); }
       function open(slug, push) {
         var d = panel(slug);
-        if (!d || d.open) return;
+        if (!d) return;
+        var cur = current();
+        if (cur === d) return;
+        if (cur) { cur.dataset.switching = '1'; cur.close(); }
         d.showModal();
         document.documentElement.classList.add('pd-open');
-        d.querySelector('.pd-body').scrollTop = 0;
-        if (push) history.pushState(null, '', '#project-' + slug);
-      }
-      function closeAll() {
-        document.querySelectorAll('dialog.pd[open]').forEach(function (d) { d.close(); });
+        var body = d.querySelector('.pd-body');
+        body.scrollTop = 0;
+        d.classList.remove('scrolled');
+        var url = '#project-' + slug;
+        if (push === 'replace') history.replaceState(null, '', url);
+        else if (push) { history.pushState(null, '', url); pushed = true; }
       }
       document.addEventListener('click', function (e) {
         var link = e.target.closest('[data-open]');
-        if (link) { e.preventDefault(); open(link.getAttribute('data-open'), true); return; }
+        if (link) {
+          e.preventDefault();
+          open(link.getAttribute('data-open'), current() ? 'replace' : true);
+          return;
+        }
         if (e.target.closest('a, button, dialog')) return;
         var card = e.target.closest('[data-card]');
         if (card) open(card.getAttribute('data-card'), true);
@@ -1095,13 +1189,23 @@ Outstanding Assignments (A2): Alice Smith</pre>
         var body = d.querySelector('.pd-body');
         body.addEventListener('scroll', function () { d.classList.toggle('scrolled', body.scrollTop > 90); }, { passive: true });
         d.addEventListener('close', function () {
+          // The close event fires after a short delay, so the flag lives on the panel itself
+          if (d.dataset.switching) { delete d.dataset.switching; return; }
           document.documentElement.classList.remove('pd-open');
-          if (location.hash === '#' + d.id) history.pushState(null, '', location.pathname + '#projects');
+          var popped = !!d.dataset.fromPop; delete d.dataset.fromPop;
+          if (!popped && /^#project-/.test(location.hash)) {
+            if (pushed) history.back();
+            else history.replaceState(null, '', location.pathname + location.search);
+          }
+          pushed = false;
+          var card = document.querySelector('[data-card="' + d.id.replace('project-', '') + '"] h3 a');
+          if (card) card.focus({ preventScroll: true });
         });
       });
       function fromHash() {
         var m = location.hash.match(/^#project-([a-z-]+)$/);
-        if (m) open(m[1], false); else closeAll();
+        if (m && panel(m[1])) open(m[1], false);
+        else { var cur = current(); if (cur) { cur.dataset.fromPop = '1'; cur.close(); } }
       }
       window.addEventListener('popstate', fromHash);
       fromHash();
