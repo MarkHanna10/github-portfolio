@@ -4,233 +4,280 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mark Hanna, Software Engineering Student</title>
-  <meta name="description" content="Mark Hanna, third-year Software Engineering student at Western University. Back-end, full-stack and embedded projects. Seeking a 12+ month co-op.">
+  <meta name="description" content="Mark Hanna, third-year Software Engineering student at Western University. Back-end, full-stack, mobile and embedded projects. Seeking a 12+ month co-op.">
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css">
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css?v=2026-10-28">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://markhanna10.github.io/github-portfolio/">
-  <meta name="theme-color" content="#4f2683">
+  <meta name="theme-color" content="#1a2039">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mark Hanna, Software Engineering Student">
-  <meta property="og:description" content="Back-end, full-stack and embedded projects. Seeking a 12+ month co-op.">
+  <meta property="og:description" content="Back-end, full-stack, mobile and embedded projects. Seeking a 12+ month co-op.">
   <meta property="og:url" content="https://markhanna10.github.io/github-portfolio/">
   <meta property="og:image" content="https://markhanna10.github.io/github-portfolio/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <nav class="mnav" aria-label="Sections, mobile">
-    <a class="mnav-name" href="#top">Mark Hanna</a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="assets/Mark_Hanna_Resume.pdf?v=2026-10-14">Resume</a></li>
-    </ul>
-  </nav>
   <div class="page" id="top">
-    <header class="side">
-      <h1 class="name">Mark Hanna</h1>
-      <p class="role">Software Engineering student, Western University</p>
-      <p class="pitch">I build back-end services, full-stack web apps and embedded systems.</p>
-      <p class="status">Open to 12+ month co-ops</p>
+    <header class="hero">
+      <figure class="hero-pic">
+        <img src="assets/projects/hem/today.jpg" width="553" height="1200" fetchpriority="high" alt="Hem's Today screen: Thursday, 19 degrees and overcast, with a hoodie, black joggers and grey sneakers laid out on a stitched card.">
+        <figcaption>Hem, my closet app for iPhone</figcaption>
+      </figure>
 
-      <nav aria-label="Sections">
-        <ul class="toc">
-          <li><a href="#about" aria-current="true">About</a></li>
+      <nav class="hero-nav" aria-label="Sections">
+        <ul>
+          <li class="menu keep"><a href="#site-nav">Menu</a></li>
+          <li><a href="#work">Work</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#education">Education</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="keep"><a class="btn" href="assets/Mark_Hanna_Resume.pdf?v=2026-10-14">Résumé</a></li>
         </ul>
       </nav>
 
-      <div class="side-foot">
-        <a class="resume-btn" href="assets/Mark_Hanna_Resume.pdf?v=2026-10-14">Download resume (PDF)</a>
-        <ul class="contact">
-          <li><a href="mailto:markshanna2006@gmail.com">Email</a></li>
-          <li><a href="https://www.linkedin.com/in/markhanna10">LinkedIn</a></li>
-          <li><a href="https://github.com/MarkHanna10">GitHub</a></li>
-        </ul>
+      <div class="hero-copy">
+        <div>
+          <p class="hero-line" data-load style="--d:420ms">Software engineering student at Western. I build back ends, apps and firmware.</p>
+          <p class="hero-ask" data-load style="--d:520ms">Open to a co-op of 12 months or more, in Ontario or the United States.</p>
+        </div>
       </div>
+
+      <h1 class="hero-name"><span class="line"><span style="--i:0">Mark</span></span> <span class="line"><span style="--i:1">Hanna</span></span></h1>
     </header>
 
     <main id="main" tabindex="-1">
-      <section id="about" class="about" aria-labelledby="about-h">
-        <h2 id="about-h">About</h2>
-        <p>I'm a third-year Software Engineering student at Western University, graduating in 2029. My work spans the stack: REST APIs and PostgreSQL tuning at RM Health Supplies, a React and Supabase prediction game with over 120 users, and embedded C++ on STM32 boards for Western Baja Racing.</p>
-        <p>I'm looking for a co-op of 12 months or longer, in Ontario or the United States.</p>
+      <section id="work" class="sec wrap" aria-labelledby="work-h">
+        <div class="grid work-head">
+          <h2 id="work-h" class="sec-h" data-reveal>Work</h2>
+          <div class="lens" hidden>
+            <p class="lens-label" id="lens-label">Hiring for</p>
+            <ul class="lens-set" role="group" aria-labelledby="lens-label">
+              <li><button type="button" data-role="all" aria-pressed="true">Any role</button></li>
+              <li><button type="button" data-role="backend" aria-pressed="false">Back end</button></li>
+              <li><button type="button" data-role="web" aria-pressed="false">Web</button></li>
+              <li><button type="button" data-role="mobile" aria-pressed="false">Mobile</button></li>
+              <li><button type="button" data-role="embedded" aria-pressed="false">Embedded</button></li>
+              <li><button type="button" data-role="games" aria-pressed="false">Games</button></li>
+            </ul>
+            <p class="lens-out" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="grid scatter">
+          <article class="w w-1 card" data-card="world-cup-predictor" data-roles="backend web">
+            <h3 class="w-name" data-reveal><a href="#project-world-cup-predictor" data-open="world-cup-predictor">World Cup 2026 Predictor</a></h3>
+            <figure class="w-pic r32" data-reveal style="--d:60ms">
+              <img src="assets/world-cup-predictor.jpg" width="1600" height="1067" decoding="async" alt="The predictor's knockout bracket, from the Round of 32 to Spain winning the final.">
+            </figure>
+            <p class="w-desc" data-reveal style="--d:120ms">A prediction game that 120+ people played in 8 leagues during the 2026 World Cup. Its model scores 68.6% cross-validated accuracy on 2,448 matches.</p>
+            <p class="w-meta" data-reveal style="--d:160ms">React, Supabase, PostgreSQL, Python, scikit-learn, GitHub Actions. Built 50/50 with Karim Assaad.</p>
+            <ul class="w-links" data-reveal style="--d:200ms">
+              <li><a class="open" href="#project-world-cup-predictor" data-open="world-cup-predictor">How it works</a></li>
+              <li><a href="https://worldcup26-lemon-five.vercel.app/">Live site</a></li>
+              <li><a href="https://github.com/MarkHanna10/world-cup-2026-predictor">Source</a></li>
+            </ul>
+          </article>
+
+          <p class="remark" data-reveal>Each one runs somewhere real: a live site, an iPhone, a Unity build, an FPGA board.</p>
+
+          <article class="w w-2 card" data-card="hem" data-roles="mobile backend">
+            <h3 class="w-name" data-reveal><a href="#project-hem" data-open="hem">Hem</a></h3>
+            <figure class="w-pic r45" data-reveal style="--d:60ms">
+              <img src="assets/projects/hem/outfit.jpg" width="460" height="575" decoding="async" alt="Hem's outfit card: a charcoal hoodie above black joggers and grey sneakers, cut out on stitched paper.">
+            </figure>
+            <p class="w-desc" data-reveal style="--d:120ms">An iPhone app that tags your clothes from a photo, on the phone, and lays out an outfit for the day's weather.</p>
+            <p class="w-meta" data-reveal style="--d:160ms">SwiftUI, Vision, WidgetKit, Supabase Edge Functions. Solo, 2026.</p>
+            <ul class="w-links" data-reveal style="--d:200ms">
+              <li><a class="open" href="#project-hem" data-open="hem">How it works</a></li>
+            </ul>
+          </article>
+
+          <article class="w w-3 card" data-card="dobbys-night-out" data-roles="games">
+            <h3 class="w-name" data-reveal><a href="#project-dobbys-night-out" data-open="dobbys-night-out">Dobby's Night Out</a></h3>
+            <figure class="w-pic r169" data-reveal style="--d:60ms">
+              <img src="assets/dobbys-night-out.jpg" width="1600" height="1000" decoding="async" alt="Dobby's Night Out title art in pixel lettering.">
+            </figure>
+            <p class="w-desc" data-reveal style="--d:120ms">A five-level adventure RPG in Unity 6, built by a team of five. I wrote the Cat Smack combat ability in C#: a cooldown attack with hit detection and a shared damage interface.</p>
+            <p class="w-meta" data-reveal style="--d:160ms">Unity 6, C#, Git. SE 2250, Western, 2026.</p>
+            <ul class="w-links" data-reveal style="--d:200ms">
+              <li><a class="open" href="#project-dobbys-night-out" data-open="dobbys-night-out">How it works</a></li>
+              <li><a href="https://github.com/MarkHanna10/Dobbys-Night-Out">Source</a></li>
+            </ul>
+          </article>
+
+          <article class="w w-4 card" data-card="course-explorer" data-roles="web">
+            <h3 class="w-name" data-reveal><a href="#project-course-explorer" data-open="course-explorer">Course Explorer</a></h3>
+            <figure class="w-pic r32" data-reveal style="--d:60ms">
+              <img src="assets/course-explorer.jpg" width="1600" height="1018" decoding="async" alt="Course Explorer filtering a sample catalog to Software Engineering courses, with one course's details open.">
+            </figure>
+            <p class="w-desc" data-reveal style="--d:120ms">Load a course catalog from JSON, then filter it by department, level, credits and instructor. Every file is validated and every value escaped before it renders.</p>
+            <p class="w-meta" data-reveal style="--d:160ms">JavaScript, HTML, CSS, File API. SE 2202, Western, 2025.</p>
+            <ul class="w-links" data-reveal style="--d:200ms">
+              <li><a class="open" href="#project-course-explorer" data-open="course-explorer">How it works</a></li>
+              <li><a href="https://markhanna10.github.io/SE2202-MiniProject2/">Live demo</a></li>
+              <li><a href="https://github.com/MarkHanna10/SE2202-MiniProject2">Source</a></li>
+            </ul>
+          </article>
+
+          <div class="more">
+            <h3 class="more-h" data-reveal>Smaller builds</h3>
+            <ul>
+              <li class="card" data-card="fpga-alu" data-roles="embedded" data-reveal style="--d:60ms">
+                <h4><a href="#project-fpga-alu" data-open="fpga-alu">4-bit ALU on FPGA</a><span>Jun 2025</span></h4>
+                <p>A ripple-carry ALU in VHDL, run at 50 MHz on an Intel MAX10. Its simulated 18 ns worst-case delay matched the hardware within 5%.</p>
+              </li>
+              <li class="card" data-card="fall-detection" data-roles="embedded" data-reveal style="--d:120ms">
+                <h4><a href="#project-fall-detection" data-open="fall-detection">Fall Detection System</a><span>Nov 2024</span></h4>
+                <p>An STM32 samples an accelerometer at 200 Hz and sends a GSM alert in under 3 seconds, with a 92% true-positive rate.</p>
+              </li>
+              <li class="card" data-card="assignment-tracker" data-roles="backend" data-reveal style="--d:180ms">
+                <h4><a href="#project-assignment-tracker" data-open="assignment-tracker">Assignment Tracker</a><span>Dec 2025</span></h4>
+                <p>An event-driven simulation of a course's assignment workflow in Node, with the Observer pattern, Promises and timers.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
 
-      <section id="experience" aria-labelledby="experience-h">
-        <h2 id="experience-h">Experience</h2>
-
-        <article class="entry">
-          <p class="when">Sep 2025 – Present</p>
-          <div>
-            <h3>Western Baja Racing</h3>
-            <p class="org">Student design team, Western University</p>
-            <ul class="points">
-              <li>Implemented UART-based data acquisition on an STM32, processing 500+ samples per second.</li>
-              <li>Optimized embedded filtering logic, lowering sensor read errors by 30% in vibration tests.</li>
-              <li>Helped deploy a Python dashboard with real-time plots, cutting analysis time by 40%.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="entry">
-          <p class="when">May – Sep 2025</p>
-          <div>
-            <h3>Back End Developer</h3>
-            <p class="org">RM Health Supplies, Mississauga</p>
-            <ul class="points">
-              <li>Engineered REST APIs in Node, Express and SQL that supported 5 internal tools.</li>
-              <li>Added indexing and restructured queries in PostgreSQL, raising throughput by 25%.</li>
-              <li>Diagnosed a memory leak in a long-running service, cutting crashes from 4 a week to 0.</li>
-              <li>Deployed background jobs with cron and queue workers, reducing manual admin work by 60%.</li>
-              <li>Added input validation and logging middleware, lowering error rates by 15%.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies">
-              <li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>REST</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="entry">
-          <p class="when">Sep 2023 – Dec 2024</p>
-          <div>
-            <h3>Computer Technician</h3>
-            <p class="org">Technoid Gaming Computers, Mississauga</p>
-            <ul class="points">
-              <li>Wrote assembly instructions and diagrams that reduced build time by 20%.</li>
-              <li>Kept a safe workflow and accurate documentation for every build and repair.</li>
-            </ul>
-          </div>
-        </article>
-      </section>
-
-      <section id="projects" aria-labelledby="projects-h">
-        <h2 id="projects-h">Projects</h2>
-        <p class="section-intro">Six projects across full-stack web, game development and embedded hardware. Select any project to see its screenshots, diagrams and results.</p>
-
-        <article class="project card" data-card="world-cup-predictor">
-          <figure class="shot">
-            <img src="assets/world-cup-predictor.jpg" width="1600" height="1067" loading="lazy" alt="The predictor's knockout bracket, from the Round of 32 to Spain winning the final.">
+      <section id="experience" class="sec wrap" aria-labelledby="experience-h">
+        <div class="grid">
+          <h2 id="experience-h" class="sec-h xp-h" data-reveal><span class="l1">Where I've worked</span> so far</h2>
+        </div>
+        <div class="grid xp-body">
+          <figure class="xp-pic" data-reveal>
+            <img src="assets/dog-clutch.jpg" width="887" height="1100" loading="lazy" alt="Two halves of a machined steel dog clutch with splined shafts, on a grey bench.">
+            <figcaption>A dog clutch machined for a Baja SAE car's four-wheel drive.</figcaption>
           </figure>
-          <p class="kind"><span>Full-stack web</span><span>Co-built 50/50</span></p>
-          <h3><a href="#project-world-cup-predictor" data-open="world-cup-predictor">World Cup 2026 Predictor</a></h3>
-          <p class="credit">Built 50/50 with Karim Assaad, 2026</p>
-          <p class="summary">A prediction game for the 2026 World Cup. A trained model forecast every match, players made picks, and private leagues competed on a live leaderboard. Over 120 people across 8 leagues played during the tournament.</p>
-          <ul class="points">
-            <li>Logistic regression trained on 2,448 international matches, 68.6% cross-validated accuracy.</li>
-            <li>10,000 simulated tournaments to estimate each team's odds of reaching every round.</li>
-            <li>Live scores pushed to the browser through Supabase Realtime and a scheduled Edge Function.</li>
-            <li>Row-level security on every table, daily data refresh through GitHub Actions, unit tests in CI.</li>
-          </ul>
-          <ul class="tags" aria-label="Technologies">
-            <li>React</li><li>Supabase</li><li>PostgreSQL</li><li>Python</li><li>scikit-learn</li><li>GitHub Actions</li>
-          </ul>
-          <ul class="links">
-            <li><a class="case-link" href="#project-world-cup-predictor" data-open="world-cup-predictor">View project details</a></li>
-            <li><a href="https://worldcup26-lemon-five.vercel.app/">Live site</a></li>
-            <li><a href="https://github.com/MarkHanna10/world-cup-2026-predictor">Source code</a></li>
-          </ul>
-        </article>
 
-        <article class="project card" data-card="dobbys-night-out">
-          <figure class="shot">
-            <img src="assets/dobbys-night-out.jpg" width="1600" height="1000" loading="lazy" alt="Dobby's Night Out title art in pixel lettering.">
-          </figure>
-          <p class="kind"><span>Game development</span><span>Team of 5</span></p>
-          <h3><a href="#project-dobbys-night-out" data-open="dobbys-night-out">Dobby's Night Out</a></h3>
-          <p class="credit">Team of 5, SE 2250, 2026</p>
-          <p class="summary">A third-person adventure RPG in Unity 6. You play Dobby, a hairless cat, across five levels of quests, puzzles and hazards. I prototyped the Cat Smack combat ability in C#: a cooldown-limited attack with hit detection and a shared damage interface, which became a store power in the final game.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>Unity 6</li><li>C#</li><li>Git</li>
-          </ul>
-          <ul class="links">
-            <li><a class="case-link" href="#project-dobbys-night-out" data-open="dobbys-night-out">View project details</a></li>
-            <li><a href="https://github.com/MarkHanna10/Dobbys-Night-Out">Source code</a></li>
-          </ul>
-        </article>
-
-        <article class="project card" data-card="course-explorer">
-          <figure class="shot">
-            <img src="assets/course-explorer.jpg" width="1600" height="1018" loading="lazy" alt="Course Explorer filtering a sample catalog to Software Engineering courses, with one course's details open.">
-          </figure>
-          <p class="kind"><span>Front-end web</span><span>Solo</span></p>
-          <h3><a href="#project-course-explorer" data-open="course-explorer">Course Explorer</a></h3>
-          <p class="credit">SE 2202, 2025</p>
-          <p class="summary">Load a course catalog from a JSON file, then filter it by department, level, credits and instructor and sort it by ID, title or semester. Validates every file and escapes all values before rendering.</p>
-          <ul class="tags" aria-label="Technologies">
-            <li>JavaScript</li><li>HTML</li><li>CSS</li><li>File API</li>
-          </ul>
-          <ul class="links">
-            <li><a class="case-link" href="#project-course-explorer" data-open="course-explorer">View project details</a></li>
-            <li><a href="https://markhanna10.github.io/SE2202-MiniProject2/">Live demo</a></li>
-            <li><a href="https://github.com/MarkHanna10/SE2202-MiniProject2">Source code</a></li>
-          </ul>
-        </article>
-
-        <ul class="more">
-          <li class="card" data-card="fpga-alu">
-            <div class="head"><p class="kind"><span>Digital hardware</span><span>Solo</span></p>
-          <h3><a href="#project-fpga-alu" data-open="fpga-alu">4-bit ALU on FPGA</a></h3><span class="when">Jun 2025</span></div>
-            <p class="summary">Designed a 4-bit ALU with a ripple-carry adder in VHDL and validated it at 50 MHz on an Intel MAX10. Simulated worst-case delay of 18 ns matched hardware testing within 5%.</p>
-            <ul class="tags" aria-label="Technologies"><li>VHDL</li><li>FPGA</li><li>Quartus Prime</li></ul>
-            <ul class="links"><li><a class="case-link" href="#project-fpga-alu" data-open="fpga-alu">View project details</a></li></ul>
-          </li>
-          <li class="card" data-card="fall-detection">
-            <div class="head"><p class="kind"><span>Embedded systems</span><span>Solo</span></p>
-          <h3><a href="#project-fall-detection" data-open="fall-detection">Fall Detection System</a></h3><span class="when">Nov 2024</span></div>
-            <p class="summary">Sampled an accelerometer at 200 Hz on an STM32 with threshold-based detection, sending GSM alerts in under 3 seconds at a 92% true-positive rate.</p>
-            <ul class="tags" aria-label="Technologies"><li>C++</li><li>STM32</li><li>SolidWorks</li></ul>
-            <ul class="links"><li><a class="case-link" href="#project-fall-detection" data-open="fall-detection">View project details</a></li></ul>
-          </li>
-          <li class="card" data-card="assignment-tracker">
-            <div class="head"><p class="kind"><span>JavaScript</span><span>Solo</span></p>
-          <h3><a href="#project-assignment-tracker" data-open="assignment-tracker">Assignment Tracker</a></h3><span class="when">Dec 2025</span></div>
-            <p class="summary">An event-driven simulation of a course's assignment workflow using the Observer pattern, Promises and timers.</p>
-            <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Node.js</li></ul>
-            <ul class="links"><li><a class="case-link" href="#project-assignment-tracker" data-open="assignment-tracker">View project details</a></li><li><a href="https://github.com/MarkHanna10/SE2202_MiniProject3">Source code</a></li></ul>
-          </li>
-        </ul>
-      </section>
-
-      <section id="skills" aria-labelledby="skills-h">
-        <h2 id="skills-h">Skills</h2>
-        <dl class="skills">
-          <dt>Languages</dt><dd>Java, C, C++, C#, Python, JavaScript, SQL, MATLAB, HTML, CSS</dd>
-          <dt>Web and back end</dt><dd>Node.js, Express, React, PostgreSQL, Supabase, REST APIs</dd>
-          <dt>Embedded and hardware</dt><dd>STM32, embedded C++, VHDL, FPGA, CAN, Simulink</dd>
-          <dt>Tools</dt><dd>Git, GitHub Actions, Docker, Postman, Unity, SolidWorks, Quartus Prime</dd>
-        </dl>
-      </section>
-
-      <section id="education" aria-labelledby="education-h">
-        <h2 id="education-h">Education</h2>
-        <article class="entry">
-          <p class="when">Expected May 2029</p>
-          <div>
-            <h3>Western University</h3>
-            <p class="org">Bachelor of Engineering Science, Software Engineering, London, Ontario</p>
-            <p class="coursework">Relevant coursework: database management systems, software project management, requirements engineering, algorithms and data structures, scripting languages.</p>
+          <p class="xp-word">Roles</p>
+          <div class="xp-rows xp-group">
+            <article class="row" data-roles="embedded" data-reveal>
+              <div class="row-line">
+                <p class="row-when">Sep 2025 – now</p>
+                <h3>Western Baja Racing</h3>
+                <p class="row-place">London, ON</p>
+              </div>
+              <p class="row-role">Student design team, embedded systems</p>
+              <ul>
+                <li>Implemented UART-based data acquisition on an STM32, processing 500+ samples per second.</li>
+                <li>Optimized embedded filtering logic, lowering sensor read errors by 30% in vibration tests.</li>
+                <li>Helped deploy a Python dashboard with real-time plots, cutting analysis time by 40%.</li>
+              </ul>
+            </article>
+            <article class="row" data-roles="backend" data-reveal>
+              <div class="row-line">
+                <p class="row-when">May – Sep 2025</p>
+                <h3>RM Health Supplies</h3>
+                <p class="row-place">Mississauga, ON</p>
+              </div>
+              <p class="row-role">Back End Developer</p>
+              <ul>
+                <li>Engineered REST APIs in Node, Express and SQL that supported 5 internal tools.</li>
+                <li>Added indexing and restructured queries in PostgreSQL, raising throughput by 25%.</li>
+                <li>Diagnosed a memory leak in a long-running service, cutting crashes from 4 a week to 0.</li>
+                <li>Deployed background jobs with cron and queue workers, reducing manual admin work by 60%.</li>
+                <li>Added input validation and logging middleware, lowering error rates by 15%.</li>
+              </ul>
+            </article>
+            <article class="row" data-roles="embedded" data-reveal>
+              <div class="row-line">
+                <p class="row-when">Sep 2023 – Dec 2024</p>
+                <h3>Technoid Gaming Computers</h3>
+                <p class="row-place">Mississauga, ON</p>
+              </div>
+              <p class="row-role">Computer Technician</p>
+              <ul>
+                <li>Wrote assembly instructions and diagrams that reduced build time by 20%.</li>
+                <li>Kept a safe workflow and accurate documentation for every build and repair.</li>
+              </ul>
+            </article>
           </div>
-        </article>
+
+          <p class="xp-word">School</p>
+          <div class="xp-rows xp-group">
+            <article class="row" data-reveal>
+              <div class="row-line">
+                <p class="row-when">Expected May 2029</p>
+                <h3>Western University</h3>
+                <p class="row-place">London, ON</p>
+              </div>
+              <p class="row-role">Bachelor of Engineering Science, Software Engineering</p>
+              <p class="row-note">Coursework: database management systems, software project management, requirements engineering, algorithms and data structures, scripting languages.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about wrap grid" aria-labelledby="about-h">
+        <div class="about-side" data-reveal>
+          <h2 id="about-h" class="sec-h">About</h2>
+          <ul class="facts">
+            <li><span>Based in</span>London, Ontario</li>
+            <li><span>Graduating</span>May 2029</li>
+            <li><span>Reach me</span><a href="mailto:markshanna2006@gmail.com">Email</a></li>
+          </ul>
+        </div>
+        <div class="about-text">
+          <p data-reveal><img class="cap" src="assets/university-college-sq.jpg" width="700" height="700" loading="lazy" alt="University College's stone tower at Western University, under a blue sky.">I'm Mark Hanna, a third-year software engineering student at Western. I've tuned PostgreSQL for <a href="#experience">RM Health Supplies</a>, written STM32 firmware for <a href="#experience">Western Baja Racing</a>, and shipped apps people use.</p>
+          <p class="about-skills" data-reveal style="--d:80ms">I write Java, C, C++, C#, Swift, Python, JavaScript and SQL. On the web I use Node, Express, React, PostgreSQL and Supabase; on hardware, STM32, VHDL, CAN and Simulink; and every day, Git, GitHub Actions, Docker, Postman, Unity, SolidWorks and Quartus Prime.</p>
+        </div>
+      </section>
+
+      <section id="contact" class="contact" aria-labelledby="contact-h">
+        <div class="c-row" data-reveal><h2 id="contact-h">Hiring a co-op student?</h2></div>
+        <div class="c-row" data-reveal><p class="soft">12+ months, Ontario or the US</p></div>
+        <div class="c-row" data-reveal><a href="mailto:markshanna2006@gmail.com">markshanna2006<wbr>@gmail.com</a></div>
+        <div class="c-row" data-reveal><a href="https://www.linkedin.com/in/markhanna10">linkedin.com/<wbr>in/markhanna10</a></div>
+        <div class="c-row" data-reveal><a href="https://github.com/MarkHanna10">github.com/<wbr>MarkHanna10</a></div>
+        <div class="c-row" data-reveal><a href="assets/Mark_Hanna_Resume.pdf?v=2026-10-14">Résumé, one page</a></div>
+        <div class="c-row c-hello" data-reveal>
+          <p>Say hello</p>
+          <a class="c-go" href="mailto:markshanna2006@gmail.com?subject=Co-op%20opportunity" aria-label="Email Mark about a co-op"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></a>
+        </div>
       </section>
     </main>
-
-    <footer>
-      <p>Mark Hanna, Ontario. <a href="mailto:markshanna2006@gmail.com">markshanna2006@gmail.com</a>, <a href="https://www.linkedin.com/in/markhanna10">LinkedIn</a>, <a href="https://github.com/MarkHanna10">GitHub</a></p>
-      <p class="updated">Last updated October 2026</p>
-    </footer>
   </div>
 
-      <!-- project-dialogs:start -->
+  <footer class="foot">
+    <div class="grid foot-cols">
+      <div>
+        <p>Mark Hanna</p>
+        <p class="soft">Software Engineering, Western University</p>
+        <p class="soft">London, Ontario</p>
+      </div>
+      <nav id="site-nav" aria-label="Site">
+        <ul>
+          <li><a href="#top">Top</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <ul>
+          <li><a href="https://github.com/MarkHanna10">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/markhanna10">LinkedIn</a></li>
+          <li><a href="assets/Mark_Hanna_Resume.pdf?v=2026-10-14">Résumé (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <p><a href="mailto:markshanna2006@gmail.com">markshanna2006@gmail.com</a></p>
+        <p class="soft">Updated October 2026</p>
+      </div>
+    </div>
+    <div class="foot-mark" aria-hidden="true">
+      <p>Mark Hanna</p>
+    </div>
+    <p class="legal">© 2026 Mark Hanna. Photographs: <a href="https://commons.wikimedia.org/wiki/File:University_College_at_the_University_of_Western_Ontario_in_London,_Ontario.jpg">University College</a> by Emily CA (MPL), CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Dog_Clutch.jpg">Dog Clutch</a> by Ael150, CC0; both via Wikimedia Commons.</p>
+  </footer>
+
+  <!-- project-dialogs:start -->
   <dialog class="pd" id="project-world-cup-predictor" aria-labelledby="world-cup-predictor-title">
     <div class="pd-bar">
       <span class="pd-bar-title" aria-hidden="true">World Cup 2026 Predictor</span>
@@ -450,6 +497,95 @@
     </section>
       <nav class="pd-next" aria-label="Other projects">
         <a href="#project-assignment-tracker" data-open="assignment-tracker"><span>Previous project</span>Assignment Tracker</a>
+        <a href="#project-hem" data-open="hem"><span>Next project</span>Hem</a>
+      </nav>
+    </div>
+  </dialog>
+  <dialog class="pd" id="project-hem" aria-labelledby="hem-title">
+    <div class="pd-bar">
+      <span class="pd-bar-title" aria-hidden="true">Hem</span>
+      <button type="button" class="pd-close" data-close>Close</button>
+    </div>
+    <div class="cs pd-body" tabindex="0" autofocus>
+
+    <header class="cs-head">
+      <h2 class="pd-title" id="hem-title">Hem</h2>
+      <p class="lede">An iPhone app for the clothes you already own. Photograph a piece and Hem works out what it is: type, colours, season, dressiness and warmth. Each morning it lays out an outfit for the day's weather and your plans.</p>
+      <dl class="facts-grid">
+        <div><dt>Team</dt><dd>Solo</dd></div>
+        <div><dt>Timeline</dt><dd>October 2026</dd></div>
+        <div><dt>Stack</dt><dd>SwiftUI, Vision, WidgetKit, Supabase</dd></div>
+        <div><dt>Source</dt><dd>Private repository</dd></div>
+      </dl>
+      <dl class="snapshot">
+        <div><dt>Goal</dt><dd>Answer "what do I wear today?" at a glance, from clothes I've photographed once.</dd></div>
+        <div><dt>My role</dt><dd>Everything: design, the iOS app, the widgets and the Supabase back end.</dd></div>
+        <div><dt>Result</dt><dd>Photo reading and outfit picks run on the phone and cost nothing. Paid search APIs sit behind a rate-limited Edge Function.</dd></div>
+      </dl>
+    </header>
+
+    <div class="stats">
+      <div><span class="v">0</span><span class="k">API keys in the app</span></div>
+      <div><span class="v">30</span><span class="k">online searches per person per day</span></div>
+      <div><span class="v">20</span><span class="k">photos added in one go</span></div>
+      <div><span class="v">4</span><span class="k">widget styles</span></div>
+    </div>
+
+    <section aria-labelledby="hem-h-what">
+      <h3 id="hem-h-what">What it does</h3>
+      <figure class="fig narrow">
+        <img src="assets/projects/hem/today.jpg" width="553" height="1200" loading="lazy" alt="Hem's Today screen: Thursday, 19 degrees and overcast, with a hoodie, black joggers and grey sneakers laid out on a stitched card.">
+        <figcaption>The Today screen. The day's pick is laid flat on a stitched card, top to bottom; swipe any piece to swap it.</figcaption>
+      </figure>
+      <ul>
+        <li><b>Add a whole pile at once.</b> Lay a few pieces on the bed and take one photo: each comes out as its own item, cut out from the background and tagged.</li>
+        <li><b>Find it online.</b> Type a product name, or scan a piece you can't name and let Google find matching pages. The product photo is cut out and tagged like your own.</li>
+        <li><b>Learns your corrections.</b> Each piece keeps a visual fingerprint; a new photo that looks like something you've tagged borrows your tags.</li>
+        <li><b>Wear what you own.</b> Wear counts, cost per wear, and a "Not worn lately" filter. The daily pick leans toward pieces that haven't been out in a month.</li>
+        <li><b>On the Home Screen.</b> Small and medium widgets and two Lock Screen styles show today's outfit.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="hem-h-read">
+      <h3 id="hem-h-read">Reading a photo on the phone</h3>
+      <p>Everything that reads a photo or picks an outfit runs on the device with Apple's frameworks, so it is free and works offline.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>On-device jobs and how each one is done.</caption>
+          <thead><tr><th scope="col">Job</th><th scope="col">How</th></tr></thead>
+          <tbody>
+            <tr><td>Cut-outs</td><td>Vision foreground instance masks, repeated so several pieces in one photo all come out</td></tr>
+            <tr><td>Garment type</td><td>The nearest match in your closet by Vision feature print, then Vision's classifier checked against the garment's outline</td></tr>
+            <tr><td>Colours</td><td>Sampled from the cut-out's pixels and named by the nearest Lab colour</td></tr>
+            <tr><td>Weather</td><td>Open-Meteo, free and keyless</td></tr>
+            <tr><td>Outfit picks</td><td>Rules for weather, occasion, season, recent wear, likes and neglect</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="hem-h-back">
+      <h3 id="hem-h-back">Keeping keys off the phone</h3>
+      <p>Online search uses two paid services. The app never holds their keys: it calls a Supabase Edge Function, which checks the person's daily quota and then calls the service.</p>
+      <ol class="flow" aria-label="Online search path">
+        <li class="step"><b>iPhone app</b><span>Anonymous Supabase sign-in</span></li>
+        <li class="arrow" aria-hidden="true"></li>
+        <li class="step key"><b>Edge Function</b><span>Holds the keys, 30 searches a day</span></li>
+        <li class="arrow" aria-hidden="true"></li>
+        <li class="step"><b>Brave Search</b><span>Search by name</span></li>
+        <li class="arrow" aria-hidden="true"></li>
+        <li class="step"><b>Google Cloud Vision</b><span>Search by photo</span></li>
+      </ol>
+      <p class="flow-caption">Closet rows and photos live in Postgres and Storage with row-level security, readable only by the signed-in person.</p>
+    </section>
+
+    <section aria-labelledby="hem-h-design">
+      <h3 id="hem-h-design">Design</h3>
+      <p>The look is an atelier: the clothes are the colour, set on stitched white paper, with Bodoni italic headings and a tailor's chalk line at the waist. The running stitch around each card is the hem in Hem.</p>
+    </section>
+
+      <nav class="pd-next" aria-label="Other projects">
+        <a href="#project-world-cup-predictor" data-open="world-cup-predictor"><span>Previous project</span>World Cup 2026 Predictor</a>
         <a href="#project-dobbys-night-out" data-open="dobbys-night-out"><span>Next project</span>Dobby's Night Out</a>
       </nav>
     </div>
@@ -644,7 +780,7 @@ foreach (Collider2D enemy in hitEnemies)
       </figure>
     </section>
       <nav class="pd-next" aria-label="Other projects">
-        <a href="#project-world-cup-predictor" data-open="world-cup-predictor"><span>Previous project</span>World Cup 2026 Predictor</a>
+        <a href="#project-hem" data-open="hem"><span>Previous project</span>Hem</a>
         <a href="#project-course-explorer" data-open="course-explorer"><span>Next project</span>Course Explorer</a>
       </nav>
     </div>
@@ -1198,7 +1334,7 @@ Outstanding Assignments (A2): Alice Smith</pre>
             else history.replaceState(null, '', location.pathname + location.search);
           }
           pushed = false;
-          var card = document.querySelector('[data-card="' + d.id.replace('project-', '') + '"] h3 a');
+          var card = document.querySelector('[data-card="' + d.id.replace('project-', '') + '"] a[data-open]');
           if (card) card.focus({ preventScroll: true });
         });
       });
@@ -1211,28 +1347,50 @@ Outstanding Assignments (A2): Alice Smith</pre>
       fromHash();
     })();
 
-    // Highlight the section in view in the sidebar
+    // "Hiring for": dim the work and roles that don't match the role a visitor is hiring for
     (function () {
-      var links = document.querySelectorAll('.toc a');
-      if (!('IntersectionObserver' in window) || !links.length) return;
-      var byId = {};
-      links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (!e.isIntersecting || window.scrollY < 80) return;
-          links.forEach(function (a) { a.removeAttribute('aria-current'); });
-          var a = byId[e.target.id];
-          if (a) a.setAttribute('aria-current', 'true');
+      var lens = document.querySelector('.lens');
+      if (!lens) return;
+      var buttons = lens.querySelectorAll('button[data-role]');
+      var out = lens.querySelector('.lens-out');
+      var items = document.querySelectorAll('[data-roles], #experience .row');
+      lens.hidden = false;
+      function set(role) {
+        var projects = 0, jobs = 0;
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.role === role)); });
+        items.forEach(function (el) {
+          var roles = (el.getAttribute('data-roles') || '').split(' ');
+          var match = role === 'all' || roles.indexOf(role) !== -1;
+          el.classList.toggle('is-dim', !match);
+          if (match && el.hasAttribute('data-card')) projects++;
+          if (match && el.classList.contains('row') && el.hasAttribute('data-roles')) jobs++;
         });
-      }, { rootMargin: '-30% 0px -60% 0px' });
-      document.querySelectorAll('main section[id]').forEach(function (s) { obs.observe(s); });
-      // Near the top of the page, About is the current section
-      window.addEventListener('scroll', function () {
-        if (window.scrollY < 80) {
-          links.forEach(function (a) { a.removeAttribute('aria-current'); });
-          byId.about.setAttribute('aria-current', 'true');
-        }
-      }, { passive: true });
+        if (role === 'all') { out.textContent = ''; return; }
+        var label = lens.querySelector('[data-role="' + role + '"]').textContent.toLowerCase();
+        out.textContent = projects + (projects === 1 ? ' project' : ' projects') + ' and ' +
+          (jobs === 0 ? 'no roles' : jobs + (jobs === 1 ? ' role' : ' roles')) + ' in ' + label + '.';
+      }
+      buttons.forEach(function (b) { b.addEventListener('click', function () { set(b.dataset.role); }); });
+    })();
+
+    // Section parts rise in once as they enter
+    (function () {
+      var els = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('is-in'); }); return; }
+      // A picture hidden by its own clip-path never intersects, so it is watched through its parent
+      var held = new Map();
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          (held.get(e.target) || [e.target]).forEach(function (el) { el.classList.add('is-in'); });
+          io.unobserve(e.target);
+        });
+      }, { rootMargin: '0px 0px 8% 0px', threshold: 0 });
+      els.forEach(function (el) {
+        if (!el.classList.contains('w-pic')) { io.observe(el); return; }
+        held.set(el.parentElement, [el.parentElement, el]);
+        io.observe(el.parentElement);
+      });
     })();
   </script>
 </body>

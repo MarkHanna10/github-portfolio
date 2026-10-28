@@ -1,0 +1,48 @@
+[
+ {
+  "file": "assets/university-college-sq.jpg",
+  "media": "image",
+  "ref": "commons:171056735",
+  "title": "University College at the University of Western Ontario in London, Ontario",
+  "creator": "Emily CA (MPL)",
+  "creatorUrl": null,
+  "date": "2024-09-03",
+  "license": "CC BY-SA 4.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:University_College_at_the_University_of_Western_Ontario_in_London,_Ontario.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/University_College_at_the_University_of_Western_Ontario_in_London%2C_Ontario.jpg/1920px-University_College_at_the_University_of_Western_Ontario_in_London%2C_Ontario.jpg",
+  "width": 1920,
+  "height": 2560,
+  "bytes": 1430366,
+  "credit": "\"University College at the University of Western Ontario in London, Ontario\" by Emily CA (MPL), CC BY-SA 4.0, via Wikimedia Commons",
+  "notes": [
+   "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+  ],
+  "saved": "2026-10-28T21:09:13.947Z"
+ },
+ {
+  "file": "assets/dog-clutch.jpg",
+  "media": "image",
+  "ref": "commons:190194344",
+  "title": "Dog Clutch",
+  "creator": "Ael150",
+  "creatorUrl": null,
+  "date": "2026-04-23",
+  "license": "CC0",
+  "licenseCode": "cc0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "creditRequired": false,
+  "page": "https://commons.wikimedia.org/wiki/File:Dog_Clutch.jpg",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Dog_Clutch.jpg/1920px-Dog_Clutch.jpg",
+  "width": 1920,
+  "height": 2380,
+  "bytes": 808745,
+  "credit": "\"Dog Clutch\" by Ael150, CC0, via Wikimedia Commons",
+  "notes": [],
+  "saved": "2026-10-28T21:10:30.104Z"
+ }
+]
