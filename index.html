@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css?v=2026-10-28">
+  <link rel="stylesheet" href="assets/site.css?v=2026-10-28b">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://markhanna10.github.io/github-portfolio/">
   <meta name="theme-color" content="#1a2039">
@@ -216,44 +216,61 @@
         </div>
       </section>
 
-      <section id="about" class="about wrap grid" aria-labelledby="about-h">
-        <div class="about-side" data-reveal>
-          <h2 id="about-h" class="sec-h">About</h2>
-          <ul class="facts">
-            <li><span>Based in</span>London, Ontario</li>
-            <li><span>Graduating</span>May 2029</li>
-            <li><span>Reach me</span><a href="mailto:markshanna2006@gmail.com">Email</a></li>
-          </ul>
+      <section id="about" class="sec wrap" aria-labelledby="about-h">
+        <div class="grid about">
+          <figure class="about-pic" data-reveal>
+            <img src="assets/university-college-sq.jpg" width="700" height="700" loading="lazy" alt="University College's stone tower at Western University, under a blue sky.">
+            <figcaption>University College, Western University</figcaption>
+          </figure>
+          <div class="about-body">
+            <h2 id="about-h" class="sec-h" data-reveal>About</h2>
+            <p class="about-lead" data-reveal style="--d:60ms">I'm a third-year software engineering student at Western. I like work that ships and gets measured.</p>
+            <p class="about-more" data-reveal style="--d:100ms">A faster query, a crash that stops happening, a model that holds up once the real matches are played. So far that has meant REST APIs and PostgreSQL tuning at RM Health Supplies, STM32 data acquisition for Western Baja Racing, a World Cup game that 120+ people played, and an iPhone app that lays out an outfit for the day's weather.</p>
+            <dl class="facts" data-reveal style="--d:140ms">
+              <div><dt>Based in</dt><dd>London, Ontario</dd></div>
+              <div><dt>Graduating</dt><dd>May 2029</dd></div>
+              <div><dt>Looking for</dt><dd>A 12+ month co-op</dd></div>
+            </dl>
+          </div>
         </div>
-        <div class="about-text">
-          <p data-reveal><img class="cap" src="assets/university-college-sq.jpg" width="700" height="700" loading="lazy" alt="University College's stone tower at Western University, under a blue sky.">I'm Mark Hanna, a third-year software engineering student at Western. I've tuned PostgreSQL for <a href="#experience">RM Health Supplies</a>, written STM32 firmware for <a href="#experience">Western Baja Racing</a>, and shipped apps people use.</p>
-          <p class="about-skills" data-reveal style="--d:80ms">I write Java, C, C++, C#, Swift, Python, JavaScript and SQL. On the web I use Node, Express, React, PostgreSQL and Supabase; on hardware, STM32, VHDL, CAN and Simulink; and every day, Git, GitHub Actions, Docker, Postman, Unity, SolidWorks and Quartus Prime.</p>
+
+        <div class="skills">
+          <h3 id="skills-h" class="skills-h" data-reveal>Tools I use</h3>
+          <dl class="skills-list">
+            <div data-reveal><dt>Languages</dt><dd>Java, C, C++, C#, Swift, Python, JavaScript, TypeScript, SQL</dd></div>
+            <div data-reveal style="--d:60ms"><dt>Web and back end</dt><dd>Node.js, Express, React, PostgreSQL, Supabase, REST APIs</dd></div>
+            <div data-reveal style="--d:120ms"><dt>iOS</dt><dd>SwiftUI, Vision, WidgetKit</dd></div>
+            <div data-reveal style="--d:180ms"><dt>Embedded and hardware</dt><dd>STM32, embedded C++, VHDL, FPGA, CAN, Simulink</dd></div>
+            <div data-reveal style="--d:240ms"><dt>Tools</dt><dd>Git, GitHub Actions, Docker, Postman, Unity, SolidWorks, Quartus Prime</dd></div>
+          </dl>
         </div>
       </section>
 
-      <section id="contact" class="contact" aria-labelledby="contact-h">
-        <div class="c-row" data-reveal><h2 id="contact-h">Hiring a co-op student?</h2></div>
-        <div class="c-row" data-reveal><p class="soft">12+ months, Ontario or the US</p></div>
-        <div class="c-row" data-reveal><a href="mailto:markshanna2006@gmail.com">markshanna2006<wbr>@gmail.com</a></div>
-        <div class="c-row" data-reveal><a href="https://www.linkedin.com/in/markhanna10">linkedin.com/<wbr>in/markhanna10</a></div>
-        <div class="c-row" data-reveal><a href="https://github.com/MarkHanna10">github.com/<wbr>MarkHanna10</a></div>
-        <div class="c-row" data-reveal><a href="assets/Mark_Hanna_Resume.pdf?v=2026-10-28">Résumé, one page</a></div>
-        <div class="c-row c-hello" data-reveal>
-          <p>Say hello</p>
-          <a class="c-go" href="mailto:markshanna2006@gmail.com?subject=Co-op%20opportunity" aria-label="Email Mark about a co-op"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 5.5 19.5 12 13 18.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></svg></a>
+      <section id="contact" class="sec wrap" aria-labelledby="contact-h">
+        <div class="contact grid">
+          <div class="contact-main">
+            <h2 id="contact-h" class="sec-h" data-reveal>Contact</h2>
+            <p class="contact-line" data-reveal style="--d:60ms">Looking for a 12+ month <span class="nowrap">co-op</span> in Ontario or the US.</p>
+            <p class="contact-note" data-reveal style="--d:80ms">Email is the fastest way to reach me.</p>
+            <p class="contact-actions" data-reveal style="--d:100ms">
+              <a class="btn" href="mailto:markshanna2006@gmail.com?subject=Co-op%20opportunity">Email me</a>
+              <a class="btn btn-quiet" href="assets/Mark_Hanna_Resume.pdf?v=2026-10-28">Download résumé</a>
+            </p>
+          </div>
+          <dl class="channels">
+            <div data-reveal><dt>Email</dt><dd><a href="mailto:markshanna2006@gmail.com">markshanna2006@gmail.com</a></dd></div>
+            <div data-reveal style="--d:60ms"><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/markhanna10">linkedin.com/in/markhanna10</a></dd></div>
+            <div data-reveal style="--d:120ms"><dt>GitHub</dt><dd><a href="https://github.com/MarkHanna10">github.com/MarkHanna10</a></dd></div>
+          </dl>
         </div>
       </section>
     </main>
   </div>
 
-  <footer class="foot">
-    <div class="grid foot-cols">
-      <div>
-        <p>Mark Hanna</p>
-        <p class="soft">Software Engineering, Western University</p>
-        <p class="soft">London, Ontario</p>
-      </div>
-      <nav id="site-nav" aria-label="Site">
+  <footer class="foot wrap">
+    <div class="grid foot-row">
+      <p class="foot-name"><b>Mark Hanna</b><span>Software Engineering, Western University</span></p>
+      <nav id="site-nav" class="foot-nav" aria-label="Site">
         <ul>
           <li><a href="#top">Top</a></li>
           <li><a href="#work">Work</a></li>
@@ -262,20 +279,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <div>
-        <ul>
-          <li><a href="https://github.com/MarkHanna10">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/markhanna10">LinkedIn</a></li>
-          <li><a href="assets/Mark_Hanna_Resume.pdf?v=2026-10-28">Résumé (PDF)</a></li>
-        </ul>
-      </div>
-      <div>
-        <p><a href="mailto:markshanna2006@gmail.com">markshanna2006@gmail.com</a></p>
-        <p class="soft">Updated October 2026</p>
-      </div>
-    </div>
-    <div class="foot-mark" aria-hidden="true">
-      <p>Mark Hanna</p>
+      <p class="foot-updated">Updated October 2026</p>
     </div>
     <p class="legal">© 2026 Mark Hanna. Photographs: <a href="https://commons.wikimedia.org/wiki/File:University_College_at_the_University_of_Western_Ontario_in_London,_Ontario.jpg">University College</a> by Emily CA (MPL), CC BY-SA 4.0; <a href="https://commons.wikimedia.org/wiki/File:Dog_Clutch.jpg">Dog Clutch</a> by Ael150, CC0; both via Wikimedia Commons.</p>
   </footer>
